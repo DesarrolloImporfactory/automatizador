@@ -1,0 +1,828 @@
+[05-Aug-2024 22:34:45 America/Guayaquil] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/alfabusi/public_html/automatizador.importsuit.com/db.php on line 7
+[05-Aug-2024 22:35:29 America/Guayaquil] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'automatizador_importsuit'@'localhost' (using password: YES) in /home/alfabusi/public_html/automatizador.importsuit.com/db.php on line 7
+[05-Aug-2024 22:36:56 America/Guayaquil] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'alfabusi_automatizador_importsuit'@'localhost' (using password: YES) in /home/alfabusi/public_html/automatizador.importsuit.com/db.php on line 7
+[05-Aug-2024 22:37:15 America/Guayaquil] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'alfabusi_automatizador_importsuit'@'localhost' (using password: YES) in /home/alfabusi/public_html/automatizador.importsuit.com/db.php on line 7
+[06-Aug-2024 13:14:13 America/Guayaquil] PHP Notice:  Undefined index: crm in /home/alfabusi/public_html/automatizador.importsuit.com/crud_configuraciones.php on line 13
+[06-Aug-2024 13:18:40 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 13:19:01 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [id] => 
+    [action] => create
+    [nombre] => Compra Producto
+    [estado] => 0
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 13:19:01 America/Guayaquil] PHP Notice:  Undefined index: json_output in /home/alfabusi/public_html/automatizador.importsuit.com/crud_automatizadores.php on line 13
+[06-Aug-2024 13:19:01 America/Guayaquil] PHP Notice:  Undefined index: json_bloques in /home/alfabusi/public_html/automatizador.importsuit.com/crud_automatizadores.php on line 14
+[06-Aug-2024 13:19:01 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 13:22:38 America/Guayaquil] PHP Notice:  Array to string conversion in /home/alfabusi/public_html/automatizador.importsuit.com/constructor_automatizador.php on line 151
+[06-Aug-2024 15:18:17 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 15:18:17 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"parent\":-1,\"childwidth\":656,\"id\":0,\"x\":328,\"y\":226.10000610351562,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":159,\"y\":428.6000061035156,\"width\":318,\"height\":112},{\"childwidth\":0,\"parent\":0,\"id\":2,\"x\":497,\"y\":428.6000061035156,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"1\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 189px; top: 159.6px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 20px; top: 372.6px;\"}]},{\"id\":2,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"7\"},{\"name\":\"blockid\",\"value\":\"2\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 358px; top: 372.6px;\"}]}]}","[]","1"]
+[06-Aug-2024 15:18:17 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:18:17 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:18:17 America/Guayaquil] Params: ["1",0]
+[06-Aug-2024 15:18:17 America/Guayaquil] Result ID: 
+[06-Aug-2024 15:18:17 America/Guayaquil] Query: 
+                INSERT INTO disparadores (id_automatizador, block_id, tipo, productos, categorias, status, novedad, provincia, ciudad, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
+            
+[06-Aug-2024 15:18:17 America/Guayaquil] Params: ["iisssssss","1",0,"1",null,null,null,null,null,null]
+[06-Aug-2024 15:18:17 America/Guayaquil] Insert ID: 1
+[06-Aug-2024 15:18:17 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:18:17 America/Guayaquil] Params: ["1",1]
+[06-Aug-2024 15:18:17 America/Guayaquil] Result ID: 
+[06-Aug-2024 15:18:17 America/Guayaquil] Query: 
+            INSERT INTO acciones (id_condicion, id_disparador, id_automatizador, block_id, tipo, asunto, mensaje, opciones, tiempo_envio, unidad_envio, tiempo_reenvio, unidad_reenvio, reenvios, cambiar_status, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
+            
+[06-Aug-2024 15:18:17 America/Guayaquil] Params: ["iiisisssssssss",null,1,"1",1,"8",null,null,null,null,null,null,null,null,null]
+[06-Aug-2024 15:18:17 America/Guayaquil] Insert ID: 1
+[06-Aug-2024 15:18:17 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:18:17 America/Guayaquil] Params: ["1",2]
+[06-Aug-2024 15:18:17 America/Guayaquil] Result ID: 
+[06-Aug-2024 15:18:17 America/Guayaquil] Query: 
+            INSERT INTO acciones (id_condicion, id_disparador, id_automatizador, block_id, tipo, asunto, mensaje, opciones, tiempo_envio, unidad_envio, tiempo_reenvio, unidad_reenvio, reenvios, cambiar_status, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
+            
+[06-Aug-2024 15:18:17 America/Guayaquil] Params: ["iiisisssssssss",null,1,"1",2,"7",null,null,null,null,null,null,null,null,null]
+[06-Aug-2024 15:18:17 America/Guayaquil] Insert ID: 2
+[06-Aug-2024 15:18:17 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:21:41 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:35:58 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 15:35:58 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"childwidth\":656,\"parent\":-1,\"id\":0,\"x\":328,\"y\":226.10000610351562,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":2,\"x\":159,\"y\":428.6000061035156,\"width\":318,\"height\":112},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":497,\"y\":428.6000061035156,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"1\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 189px; top: 159.6px;\"}]},{\"id\":2,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"7\"},{\"name\":\"blockid\",\"value\":\"2\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 0px; top: 372.6px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block selectedblock\"},{\"style\":\"left: 338px; top: 372.6px;\"}]}]}","[null,{\"id_block\":\"1\",\"id_whatsapp_message_template\":\"2196171604076620\",\"\":\"\",\"mensaje\":\"{{nombre}}, your order {{order_id}} has left our {{direccion}} and is on its way to you! \\n\\nYour tracking ID is {{order_id}}. \\n\\nClick below to track your package.\"}]","1"]
+[06-Aug-2024 15:35:58 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:35:58 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:35:58 America/Guayaquil] Params: ["1",0]
+[06-Aug-2024 15:35:58 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:35:58 America/Guayaquil] Query: 
+                UPDATE disparadores
+                SET productos = ?, categorias = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:35:58 America/Guayaquil] Params: ["ssssssi",null,null,null,null,null,null,1]
+[06-Aug-2024 15:35:58 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:35:58 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:35:58 America/Guayaquil] Params: ["1",2]
+[06-Aug-2024 15:35:58 America/Guayaquil] Result ID: 2
+[06-Aug-2024 15:35:58 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:35:58 America/Guayaquil] Params: ["sssssssssi",null,null,null,null,null,null,null,null,null,2]
+[06-Aug-2024 15:35:58 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:35:58 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:35:58 America/Guayaquil] Params: ["1",1]
+[06-Aug-2024 15:35:58 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:35:58 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:35:58 America/Guayaquil] Params: ["sssssssssi",null,"{{nombre}}, your order {{order_id}} has left our {{direccion}} and is on its way to you! \n\nYour tracking ID is {{order_id}}. \n\nClick below to track your package.",null,null,null,null,null,null,null,1]
+[06-Aug-2024 15:35:58 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:35:59 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:36:04 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:38:10 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 15:38:10 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"childwidth\":656,\"parent\":-1,\"id\":0,\"x\":328,\"y\":226.10000610351562,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":159,\"y\":428.6000061035156,\"width\":318,\"height\":112},{\"childwidth\":0,\"parent\":0,\"id\":2,\"x\":497,\"y\":428.6000061035156,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"1\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block selectedblock\"},{\"style\":\"left: 189px; top: 159.6px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 0px; top: 372.6px;\"}]},{\"id\":2,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"7\"},{\"name\":\"blockid\",\"value\":\"2\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 338px; top: 372.6px;\"}]}]}","[{\"id_block\":\"0\",\"productos[]\":[\"0\"],\"\":\"\"}]","1"]
+[06-Aug-2024 15:38:10 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:38:10 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:38:10 America/Guayaquil] Params: ["1",0]
+[06-Aug-2024 15:38:10 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:38:10 America/Guayaquil] Query: 
+                UPDATE disparadores
+                SET productos = ?, categorias = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:38:10 America/Guayaquil] Params: ["ssssssi","[\"0\"]",null,null,null,null,null,1]
+[06-Aug-2024 15:38:10 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:38:10 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:38:10 America/Guayaquil] Params: ["1",1]
+[06-Aug-2024 15:38:10 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:38:10 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:38:10 America/Guayaquil] Params: ["sssssssssi",null,null,null,null,null,null,null,null,null,1]
+[06-Aug-2024 15:38:10 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:38:10 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:38:10 America/Guayaquil] Params: ["1",2]
+[06-Aug-2024 15:38:10 America/Guayaquil] Result ID: 2
+[06-Aug-2024 15:38:10 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:38:10 America/Guayaquil] Params: ["sssssssssi",null,null,null,null,null,null,null,null,null,2]
+[06-Aug-2024 15:38:10 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:38:10 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:41:09 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:41:22 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 15:41:22 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"childwidth\":656,\"parent\":-1,\"id\":0,\"x\":328,\"y\":226.10000610351562,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":159,\"y\":428.6000061035156,\"width\":318,\"height\":112},{\"childwidth\":0,\"parent\":0,\"id\":2,\"x\":497,\"y\":428.6000061035156,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"1\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 189px; top: 159.6px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block selectedblock\"},{\"style\":\"left: 0px; top: 372.6px;\"}]},{\"id\":2,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"7\"},{\"name\":\"blockid\",\"value\":\"2\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 338px; top: 372.6px;\"}]}]}","[{\"id_block\":\"0\",\"productos[]\":[\"0\"],\"\":\"\"},{\"id_block\":\"1\",\"id_whatsapp_message_template\":\"1036615427825831\",\"\":\"\",\"mensaje\":\"Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.\"}]","1"]
+[06-Aug-2024 15:41:22 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:41:22 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:41:22 America/Guayaquil] Params: ["1",0]
+[06-Aug-2024 15:41:22 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:41:22 America/Guayaquil] Query: 
+                UPDATE disparadores
+                SET productos = ?, categorias = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:41:22 America/Guayaquil] Params: ["ssssssi","[\"0\"]",null,null,null,null,null,1]
+[06-Aug-2024 15:41:22 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:41:22 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:41:22 America/Guayaquil] Params: ["1",1]
+[06-Aug-2024 15:41:22 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:41:22 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:41:22 America/Guayaquil] Params: ["sssssssssi",null,"Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.",null,null,null,null,null,null,null,1]
+[06-Aug-2024 15:41:22 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:41:22 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:41:22 America/Guayaquil] Params: ["1",2]
+[06-Aug-2024 15:41:22 America/Guayaquil] Result ID: 2
+[06-Aug-2024 15:41:22 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:41:22 America/Guayaquil] Params: ["sssssssssi",null,null,null,null,null,null,null,null,null,2]
+[06-Aug-2024 15:41:22 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:41:22 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:46:07 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:46:36 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 15:46:36 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"childwidth\":656,\"parent\":-1,\"id\":0,\"x\":328,\"y\":226.10000610351562,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":159,\"y\":428.6000061035156,\"width\":318,\"height\":112},{\"childwidth\":0,\"parent\":0,\"id\":2,\"x\":497,\"y\":428.6000061035156,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"1\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block selectedblock\"},{\"style\":\"left: 189px; top: 159.6px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 0px; top: 372.6px;\"}]},{\"id\":2,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"7\"},{\"name\":\"blockid\",\"value\":\"2\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 338px; top: 372.6px;\"}]}]}","[{\"id_block\":\"0\",\"productos[]\":[\"0\",\"1\",\"2\"],\"\":\"\"},{\"id_block\":\"1\",\"id_whatsapp_message_template\":\"1036615427825831\",\"\":\"\",\"mensaje\":\"Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.\"}]","1"]
+[06-Aug-2024 15:46:36 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:46:36 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:46:36 America/Guayaquil] Params: ["1",0]
+[06-Aug-2024 15:46:36 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:46:36 America/Guayaquil] Query: 
+                UPDATE disparadores
+                SET productos = ?, categorias = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:46:36 America/Guayaquil] Params: ["ssssssi","[\"0\",\"1\",\"2\"]",null,null,null,null,null,1]
+[06-Aug-2024 15:46:36 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:46:36 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:46:36 America/Guayaquil] Params: ["1",1]
+[06-Aug-2024 15:46:36 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:46:36 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:46:36 America/Guayaquil] Params: ["sssssssssi",null,"Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.",null,null,null,null,null,null,null,1]
+[06-Aug-2024 15:46:36 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:46:36 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:46:36 America/Guayaquil] Params: ["1",2]
+[06-Aug-2024 15:46:36 America/Guayaquil] Result ID: 2
+[06-Aug-2024 15:46:36 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:46:36 America/Guayaquil] Params: ["sssssssssi",null,null,null,null,null,null,null,null,null,2]
+[06-Aug-2024 15:46:36 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:46:36 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:49:01 America/Guayaquil] PHP Notice:  Array to string conversion in /home/alfabusi/public_html/automatizador.importsuit.com/webhook_automatizador.php on line 90
+[06-Aug-2024 15:49:01 America/Guayaquil] PHP Notice:  Array to string conversion in /home/alfabusi/public_html/automatizador.importsuit.com/webhook_automatizador.php on line 90
+[06-Aug-2024 15:49:01 America/Guayaquil] PHP Notice:  Array to string conversion in /home/alfabusi/public_html/automatizador.importsuit.com/webhook_automatizador.php on line 90
+[06-Aug-2024 15:49:01 America/Guayaquil] PHP Notice:  Array to string conversion in /home/alfabusi/public_html/automatizador.importsuit.com/webhook_automatizador.php on line 90
+[06-Aug-2024 15:49:01 America/Guayaquil] PHP Notice:  Array to string conversion in /home/alfabusi/public_html/automatizador.importsuit.com/webhook_automatizador.php on line 90
+[06-Aug-2024 15:54:05 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:54:10 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 15:54:10 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"childwidth\":318,\"parent\":-1,\"id\":0,\"x\":328,\"y\":226.10000610351562,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":328,\"y\":428.6000061035156,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"1\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 189px; top: 159.6px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 169px; top: 372.6px;\"}]}]}","[{\"id_block\":\"0\",\"productos[]\":[\"0\",\"1\",\"2\"],\"\":\"\"},{\"id_block\":\"1\",\"id_whatsapp_message_template\":\"1036615427825831\",\"\":\"\",\"mensaje\":\"Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.\"}]","1"]
+[06-Aug-2024 15:54:10 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:54:10 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:54:10 America/Guayaquil] Params: ["1",0]
+[06-Aug-2024 15:54:10 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:54:10 America/Guayaquil] Query: 
+                UPDATE disparadores
+                SET productos = ?, categorias = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:54:10 America/Guayaquil] Params: ["ssssssi","[\"0\",\"1\",\"2\"]",null,null,null,null,null,1]
+[06-Aug-2024 15:54:10 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:54:10 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:54:10 America/Guayaquil] Params: ["1",1]
+[06-Aug-2024 15:54:10 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:54:10 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:54:10 America/Guayaquil] Params: ["sssssssssi",null,"Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.",null,null,null,null,null,null,null,1]
+[06-Aug-2024 15:54:10 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:54:11 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:54:42 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [id] => 
+    [action] => create
+    [nombre] => Agregar Categoria
+    [estado] => 0
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:54:42 America/Guayaquil] PHP Notice:  Undefined index: json_output in /home/alfabusi/public_html/automatizador.importsuit.com/crud_automatizadores.php on line 13
+[06-Aug-2024 15:54:42 America/Guayaquil] PHP Notice:  Undefined index: json_bloques in /home/alfabusi/public_html/automatizador.importsuit.com/crud_automatizadores.php on line 14
+[06-Aug-2024 15:54:43 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:54:47 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:54:49 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [id] => 2
+    [action] => read
+)
+
+[06-Aug-2024 15:54:51 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [id] => 2
+    [action] => update
+    [nombre] => Agregar Categoria
+    [estado] => 1
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:54:51 America/Guayaquil] PHP Notice:  Undefined index: json_output in /home/alfabusi/public_html/automatizador.importsuit.com/crud_automatizadores.php on line 56
+[06-Aug-2024 15:54:51 America/Guayaquil] PHP Notice:  Undefined index: json_bloques in /home/alfabusi/public_html/automatizador.importsuit.com/crud_automatizadores.php on line 57
+[06-Aug-2024 15:54:51 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:54:52 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [id] => 1
+    [action] => read
+)
+
+[06-Aug-2024 15:54:53 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [id] => 1
+    [action] => update
+    [nombre] => Compra Producto
+    [estado] => 1
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:54:53 America/Guayaquil] PHP Notice:  Undefined index: json_output in /home/alfabusi/public_html/automatizador.importsuit.com/crud_automatizadores.php on line 56
+[06-Aug-2024 15:54:53 America/Guayaquil] PHP Notice:  Undefined index: json_bloques in /home/alfabusi/public_html/automatizador.importsuit.com/crud_automatizadores.php on line 57
+[06-Aug-2024 15:54:53 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:54:58 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:55:08 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:55:11 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:55:36 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:55:55 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 15:55:55 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"parent\":-1,\"childwidth\":318,\"id\":0,\"x\":370.78753662109375,\"y\":185.10000610351562,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":370.78753662109375,\"y\":387.6000061035156,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"1\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 211.8px; top: 118.6px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block selectedblock\"},{\"style\":\"left: 211.788px; top: 331.6px;\"}]}]}","[{\"id_block\":\"0\",\"productos[]\":[\"0\"],\"\":\"\"},{\"id_block\":\"1\",\"id_whatsapp_message_template\":\"1036615427825831\",\"\":\"\",\"mensaje\":\"Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.\"}]","1"]
+[06-Aug-2024 15:55:55 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:55:55 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:55:55 America/Guayaquil] Params: ["1",0]
+[06-Aug-2024 15:55:55 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:55:55 America/Guayaquil] Query: 
+                UPDATE disparadores
+                SET productos = ?, categorias = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:55:55 America/Guayaquil] Params: ["ssssssi","[\"0\"]",null,null,null,null,null,1]
+[06-Aug-2024 15:55:55 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:55:55 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:55:55 America/Guayaquil] Params: ["1",1]
+[06-Aug-2024 15:55:55 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:55:55 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:55:55 America/Guayaquil] Params: ["sssssssssi",null,"Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.",null,null,null,null,null,null,null,1]
+[06-Aug-2024 15:55:55 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:55:56 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:56:02 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:57:09 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 15:57:09 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"parent\":-1,\"childwidth\":318,\"id\":0,\"x\":399.78753662109375,\"y\":219.6999969482422,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":399.78753662109375,\"y\":422.20001220703125,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"5\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 240.8px; top: 153.2px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block selectedblock\"},{\"style\":\"left: 240.788px; top: 366.2px;\"}]}]}","[{\"id_block\":\"0\",\"provincia[]\":[\"0\"],\"\":\"\"},{\"id_block\":\"1\",\"id_whatsapp_message_template\":\"2196171604076620\",\"\":\"\",\"mensaje\":\"{{nombre}}, your order {{order_id}} has left our {{direccion}} and is on its way to you! \\n\\nYour tracking ID is {{order_id}}. \\n\\nClick below to track your package.\"}]","2"]
+[06-Aug-2024 15:57:09 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:57:09 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:57:09 America/Guayaquil] Params: ["2",0]
+[06-Aug-2024 15:57:09 America/Guayaquil] Result ID: 
+[06-Aug-2024 15:57:09 America/Guayaquil] Query: 
+                INSERT INTO disparadores (id_automatizador, block_id, tipo, productos, categorias, status, novedad, provincia, ciudad, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
+            
+[06-Aug-2024 15:57:09 America/Guayaquil] Params: ["iisssssss","2",0,"5",null,null,null,null,"[\"0\"]",null]
+[06-Aug-2024 15:57:09 America/Guayaquil] Insert ID: 2
+[06-Aug-2024 15:57:09 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:57:09 America/Guayaquil] Params: ["2",1]
+[06-Aug-2024 15:57:09 America/Guayaquil] Result ID: 
+[06-Aug-2024 15:57:09 America/Guayaquil] Query: 
+            INSERT INTO acciones (id_condicion, id_disparador, id_automatizador, block_id, tipo, asunto, mensaje, opciones, tiempo_envio, unidad_envio, tiempo_reenvio, unidad_reenvio, reenvios, cambiar_status, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
+            
+[06-Aug-2024 15:57:09 America/Guayaquil] Params: ["iiisisssssssss",null,2,"2",1,"8",null,"{{nombre}}, your order {{order_id}} has left our {{direccion}} and is on its way to you! \n\nYour tracking ID is {{order_id}}. \n\nClick below to track your package.",null,null,null,null,null,null,null]
+[06-Aug-2024 15:57:09 America/Guayaquil] Insert ID: 3
+[06-Aug-2024 15:57:10 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:57:13 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 15:57:13 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"childwidth\":318,\"parent\":-1,\"id\":0,\"x\":370.78753662109375,\"y\":185.10000610351562,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":370.78753662109375,\"y\":387.6000061035156,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"1\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 211.8px; top: 118.6px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 211.788px; top: 331.6px;\"}]}]}","[{\"id_block\":\"0\",\"productos[]\":[\"0\"],\"\":\"\"},{\"id_block\":\"1\",\"id_whatsapp_message_template\":\"1036615427825831\",\"\":\"\",\"mensaje\":\"Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.\"}]","1"]
+[06-Aug-2024 15:57:13 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:57:13 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:57:13 America/Guayaquil] Params: ["1",0]
+[06-Aug-2024 15:57:13 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:57:13 America/Guayaquil] Query: 
+                UPDATE disparadores
+                SET productos = ?, categorias = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:57:13 America/Guayaquil] Params: ["ssssssi","[\"0\"]",null,null,null,null,null,1]
+[06-Aug-2024 15:57:13 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:57:13 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:57:13 America/Guayaquil] Params: ["1",1]
+[06-Aug-2024 15:57:13 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:57:13 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:57:13 America/Guayaquil] Params: ["sssssssssi",null,"Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.",null,null,null,null,null,null,null,1]
+[06-Aug-2024 15:57:13 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:57:13 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:57:17 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 15:57:17 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"childwidth\":318,\"parent\":-1,\"id\":0,\"x\":399.78753662109375,\"y\":219.6999969482422,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":399.78753662109375,\"y\":422.20001220703125,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"5\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 240.8px; top: 153.2px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 240.788px; top: 366.2px;\"}]}]}","[{\"id_block\":\"0\",\"provincia[]\":[\"0\"],\"\":\"\"},{\"id_block\":\"1\",\"id_whatsapp_message_template\":\"2196171604076620\",\"\":\"\",\"mensaje\":\"{{nombre}}, your order {{order_id}} has left our {{direccion}} and is on its way to you! \\n\\nYour tracking ID is {{order_id}}. \\n\\nClick below to track your package.\"}]","2"]
+[06-Aug-2024 15:57:17 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:57:17 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:57:17 America/Guayaquil] Params: ["2",0]
+[06-Aug-2024 15:57:17 America/Guayaquil] Result ID: 2
+[06-Aug-2024 15:57:17 America/Guayaquil] Query: 
+                UPDATE disparadores
+                SET productos = ?, categorias = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:57:17 America/Guayaquil] Params: ["ssssssi",null,null,null,null,"[\"0\"]",null,2]
+[06-Aug-2024 15:57:17 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:57:17 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:57:17 America/Guayaquil] Params: ["2",1]
+[06-Aug-2024 15:57:17 America/Guayaquil] Result ID: 3
+[06-Aug-2024 15:57:17 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:57:17 America/Guayaquil] Params: ["sssssssssi",null,"{{nombre}}, your order {{order_id}} has left our {{direccion}} and is on its way to you! \n\nYour tracking ID is {{order_id}}. \n\nClick below to track your package.",null,null,null,null,null,null,null,3]
+[06-Aug-2024 15:57:17 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:57:17 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 15:57:20 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 15:57:20 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"childwidth\":318,\"parent\":-1,\"id\":0,\"x\":370.78753662109375,\"y\":185.10000610351562,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":370.78753662109375,\"y\":387.6000061035156,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"1\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 211.8px; top: 118.6px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 211.788px; top: 331.6px;\"}]}]}","[{\"id_block\":\"0\",\"productos[]\":[\"0\"],\"\":\"\"},{\"id_block\":\"1\",\"id_whatsapp_message_template\":\"1036615427825831\",\"\":\"\",\"mensaje\":\"Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.\"}]","1"]
+[06-Aug-2024 15:57:20 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:57:20 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:57:20 America/Guayaquil] Params: ["1",0]
+[06-Aug-2024 15:57:20 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:57:20 America/Guayaquil] Query: 
+                UPDATE disparadores
+                SET productos = ?, categorias = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:57:20 America/Guayaquil] Params: ["ssssssi","[\"0\"]",null,null,null,null,null,1]
+[06-Aug-2024 15:57:20 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:57:20 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 15:57:20 America/Guayaquil] Params: ["1",1]
+[06-Aug-2024 15:57:20 America/Guayaquil] Result ID: 1
+[06-Aug-2024 15:57:20 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 15:57:20 America/Guayaquil] Params: ["sssssssssi",null,"Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.",null,null,null,null,null,null,null,1]
+[06-Aug-2024 15:57:20 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 15:57:21 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:02:43 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:37:12 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:38:39 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:40:39 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:43:24 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:43:47 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:43:53 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:43:54 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [id] => 2
+    [action] => read
+)
+
+[06-Aug-2024 16:44:02 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [id] => 2
+    [action] => update
+    [nombre] => Colocar Ubicación
+    [estado] => 1
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:44:02 America/Guayaquil] PHP Notice:  Undefined index: json_output in /home/alfabusi/public_html/automatizador.importsuit.com/crud_automatizadores.php on line 56
+[06-Aug-2024 16:44:02 America/Guayaquil] PHP Notice:  Undefined index: json_bloques in /home/alfabusi/public_html/automatizador.importsuit.com/crud_automatizadores.php on line 57
+[06-Aug-2024 16:44:03 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:44:17 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:44:20 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:45:51 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 16:45:51 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"parent\":-1,\"childwidth\":318,\"id\":0,\"x\":381.78753662109375,\"y\":222.6999969482422,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":381.78753662109375,\"y\":425.20001220703125,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"5\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 222.8px; top: 156.2px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 222.788px; top: 369.2px;\"}]}]}","[{\"id_block\":\"0\",\"provincia[]\":[\"0\"],\"\":\"\"},{\"id_block\":\"1\",\"id_whatsapp_message_template\":\"2196171604076620\",\"\":\"\",\"mensaje\":\"{{nombre}}, your order {{order_id}} has left our {{direccion}} and is on its way to you! \\n\\nYour tracking ID is {{order_id}}. \\n\\nClick below to track your package.\"}]","2"]
+[06-Aug-2024 16:45:51 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 16:45:51 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 16:45:51 America/Guayaquil] Params: ["2",0]
+[06-Aug-2024 16:45:51 America/Guayaquil] Result ID: 2
+[06-Aug-2024 16:45:51 America/Guayaquil] Query: 
+                UPDATE disparadores
+                SET productos = ?, categorias = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 16:45:51 America/Guayaquil] Params: ["ssssssi",null,null,null,null,"[\"0\"]",null,2]
+[06-Aug-2024 16:45:51 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 16:45:51 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 16:45:51 America/Guayaquil] Params: ["2",1]
+[06-Aug-2024 16:45:51 America/Guayaquil] Result ID: 3
+[06-Aug-2024 16:45:51 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 16:45:51 America/Guayaquil] Params: ["sssssssssi",null,"{{nombre}}, your order {{order_id}} has left our {{direccion}} and is on its way to you! \n\nYour tracking ID is {{order_id}}. \n\nClick below to track your package.",null,null,null,null,null,null,null,3]
+[06-Aug-2024 16:45:51 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 16:45:52 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 16:45:52 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"parent\":-1,\"childwidth\":318,\"id\":0,\"x\":381.78753662109375,\"y\":222.6999969482422,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":381.78753662109375,\"y\":425.20001220703125,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"5\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 222.8px; top: 156.2px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 222.788px; top: 369.2px;\"}]}]}","[{\"id_block\":\"0\",\"provincia[]\":[\"0\"],\"\":\"\"},{\"id_block\":\"1\",\"id_whatsapp_message_template\":\"2196171604076620\",\"\":\"\",\"mensaje\":\"{{nombre}}, your order {{order_id}} has left our {{direccion}} and is on its way to you! \\n\\nYour tracking ID is {{order_id}}. \\n\\nClick below to track your package.\"}]","2"]
+[06-Aug-2024 16:45:52 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 16:45:52 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 16:45:52 America/Guayaquil] Params: ["2",0]
+[06-Aug-2024 16:45:52 America/Guayaquil] Result ID: 2
+[06-Aug-2024 16:45:52 America/Guayaquil] Query: 
+                UPDATE disparadores
+                SET productos = ?, categorias = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 16:45:52 America/Guayaquil] Params: ["ssssssi",null,null,null,null,"[\"0\"]",null,2]
+[06-Aug-2024 16:45:52 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 16:45:52 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 16:45:52 America/Guayaquil] Params: ["2",1]
+[06-Aug-2024 16:45:52 America/Guayaquil] Result ID: 3
+[06-Aug-2024 16:45:52 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 16:45:52 America/Guayaquil] Params: ["sssssssssi",null,"{{nombre}}, your order {{order_id}} has left our {{direccion}} and is on its way to you! \n\nYour tracking ID is {{order_id}}. \n\nClick below to track your package.",null,null,null,null,null,null,null,3]
+[06-Aug-2024 16:45:52 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 16:45:52 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:46:34 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:53:16 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:53:44 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 16:53:44 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"childwidth\":318,\"parent\":-1,\"id\":0,\"x\":381.78753662109375,\"y\":222.6999969482422,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":381.78753662109375,\"y\":425.20001220703125,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"5\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 222.8px; top: 156.2px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block selectedblock\"},{\"style\":\"left: 222.788px; top: 369.2px;\"}]}]}","[{\"id_block\":\"0\",\"provincia[]\":[\"0\"],\"\":\"\"},{\"id_block\":\"1\",\"id_whatsapp_message_template\":\"2196171604076620\",\"\":\"\",\"mensaje\":\"{{nombre}}, your order {{order_id}} has left our {{datos_pedido}} and is on its way to you! \\n\\nYour tracking ID is {{order_id}}. \\n\\nClick below to track your package.\"}]","2"]
+[06-Aug-2024 16:53:44 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 16:53:44 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 16:53:44 America/Guayaquil] Params: ["2",0]
+[06-Aug-2024 16:53:44 America/Guayaquil] Result ID: 2
+[06-Aug-2024 16:53:44 America/Guayaquil] Query: 
+                UPDATE disparadores
+                SET productos = ?, categorias = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 16:53:44 America/Guayaquil] Params: ["ssssssi",null,null,null,null,"[\"0\"]",null,2]
+[06-Aug-2024 16:53:44 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 16:53:44 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 16:53:44 America/Guayaquil] Params: ["2",1]
+[06-Aug-2024 16:53:44 America/Guayaquil] Result ID: 3
+[06-Aug-2024 16:53:44 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 16:53:44 America/Guayaquil] Params: ["sssssssssi",null,"{{nombre}}, your order {{order_id}} has left our {{datos_pedido}} and is on its way to you! \n\nYour tracking ID is {{order_id}}. \n\nClick below to track your package.",null,null,null,null,null,null,null,3]
+[06-Aug-2024 16:53:44 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 16:53:45 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:56:15 America/Guayaquil] Query: 
+    UPDATE automatizadores 
+    SET json_output = ?, json_bloques = ?, updated_at = NOW()
+    WHERE id = ?
+
+[06-Aug-2024 16:56:15 America/Guayaquil] Params: ["ssi","{\"html\":[],\"blockarr\":[{\"childwidth\":318,\"parent\":-1,\"id\":0,\"x\":381.78753662109375,\"y\":222.6999969482422,\"width\":318,\"height\":133},{\"childwidth\":0,\"parent\":0,\"id\":1,\"x\":381.78753662109375,\"y\":425.20001220703125,\"width\":318,\"height\":112}],\"blocks\":[{\"id\":0,\"parent\":-1,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"5\"},{\"name\":\"blockid\",\"value\":\"0\"}],\"attr\":[{\"class\":\"blockelem noselect block\"},{\"style\":\"left: 222.8px; top: 156.2px;\"}]},{\"id\":1,\"parent\":0,\"data\":[{\"name\":\"blockelemtype\",\"value\":\"8\"},{\"name\":\"blockid\",\"value\":\"1\"}],\"attr\":[{\"class\":\"blockelem noselect block selectedblock\"},{\"style\":\"left: 222.788px; top: 369.2px;\"}]}]}","[{\"id_block\":\"0\",\"provincia[]\":[\"0\"],\"\":\"\"},{\"id_block\":\"1\",\"id_whatsapp_message_template\":\"2196171604076620\",\"\":\"\",\"mensaje\":\"{{nombre}}, your order {{order_id}} has left our {{direccion}} and is on its way to you! \\n\\nYour tracking ID is {{order_id}}. \\n\\nClick below to track your package.\"}]","2"]
+[06-Aug-2024 16:56:15 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 16:56:15 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM disparadores WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 16:56:15 America/Guayaquil] Params: ["2",0]
+[06-Aug-2024 16:56:15 America/Guayaquil] Result ID: 2
+[06-Aug-2024 16:56:15 America/Guayaquil] Query: 
+                UPDATE disparadores
+                SET productos = ?, categorias = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 16:56:15 America/Guayaquil] Params: ["ssssssi",null,null,null,null,"[\"0\"]",null,2]
+[06-Aug-2024 16:56:15 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 16:56:15 America/Guayaquil] Check Existing Block ID Query: SELECT id FROM acciones WHERE id_automatizador = ? AND block_id = ?
+[06-Aug-2024 16:56:15 America/Guayaquil] Params: ["2",1]
+[06-Aug-2024 16:56:15 America/Guayaquil] Result ID: 3
+[06-Aug-2024 16:56:15 America/Guayaquil] Query: 
+                UPDATE acciones
+                SET asunto = ?, mensaje = ?, opciones = ?, tiempo_envio = ?, unidad_envio = ?, tiempo_reenvio = ?, unidad_reenvio = ?, reenvios = ?, cambiar_status = ?, updated_at = NOW()
+                WHERE id = ?
+            
+[06-Aug-2024 16:56:15 America/Guayaquil] Params: ["sssssssssi",null,"{{nombre}}, your order {{order_id}} has left our {{direccion}} and is on its way to you! \n\nYour tracking ID is {{order_id}}. \n\nClick below to track your package.",null,null,null,null,null,null,null,3]
+[06-Aug-2024 16:56:15 America/Guayaquil] Insert ID: 0
+[06-Aug-2024 16:56:16 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:57:01 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [id] => 
+    [action] => create
+    [nombre] => Saludo
+    [estado] => 1
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:57:01 America/Guayaquil] PHP Notice:  Undefined index: json_output in /home/alfabusi/public_html/automatizador.importsuit.com/crud_automatizadores.php on line 13
+[06-Aug-2024 16:57:01 America/Guayaquil] PHP Notice:  Undefined index: json_bloques in /home/alfabusi/public_html/automatizador.importsuit.com/crud_automatizadores.php on line 14
+[06-Aug-2024 16:57:01 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 16:57:35 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 17:04:44 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[06-Aug-2024 18:14:34 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+
+[05-Sep-2024 15:20:45 America/Guayaquil] PHP Notice:  Array to string conversion in /home/alfabusi/public_html/automatizador.importsuit.com/webhook_automatizador.php on line 317
+[05-Sep-2024 15:20:53 America/Guayaquil] Datos recibidos por POST: Array
+(
+    [action] => read
+    [id_configuracion] => 1
+)
+

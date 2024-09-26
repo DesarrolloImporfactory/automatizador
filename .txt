@@ -1,0 +1,21 @@
+Recomendaciones generales:
+- Hay que hacer un archivo response_handler.php y dentro del servidor un crono jobs, con la finalidad de que se verifique cada minuto
+los mensjaes en cola
+
+- Hay que completar la verificacion de la app de ImportSuit en Meta para el whatsapp embed login, para ello se necesia desarrolalar términos y condiciones
+
+- generar un archivo unificado con todas las funciones (para webhooks y response_handler) para volver mas sencillo el acceso y actualziaciones de cada unificadop
+Instalación:
+- Hay que3 actualizar el codigo en el constructor visual para que ponga en el mensaje el codigo del template
+- a su vez en el main js en la parte donde imprime los campos del formulario hay que extraer información hay que agregarle esa indicacion
+- hay que agrearle el embed login- hay qu actualziar los campos de las tablas del mysql actual
+- colocar el webhook_automatizador.php
+- colocar el webhook_whatsapp.php
+- en la tabla de configuraciones actualizar el url del webhook
+
+
+Corregir
+- No funcionaría, dado a que cuando el texto se actualiza se actualiza en el JSON mas no en la tabla, por ende todo hay que hacerlo con la tabla mas no con el JSON
+- Sólo hay que traer las últimas interacciones del usuario y comparar con json_bloques, cuáles son condicion y tienen texto similar. posterior a esto se activa las funciones
+
+- Es importante armar un response_handler.php , ya que eso es lo único que puede ayudar a verificar aquellos bloques pendientes en ejecutar
