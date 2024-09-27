@@ -62,7 +62,7 @@ if (isset($_POST['email'])) {
                 <input type="checkbox" name="remember" id="remember" class="mr-2">
                 <label for="remember" class="text-sm font-medium text-gray-700">Recordar mi cuenta</label>
             </div>
-            <button type="submit" class="w-full bg-indigo-600 text-white p-2 rounded-md">Iniciar sesión</button>
+            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md">Iniciar sesión</button>
         </form>
     </div>
 
