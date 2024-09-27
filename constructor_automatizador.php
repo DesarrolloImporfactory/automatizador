@@ -26,16 +26,16 @@ if ($id_automatizador) {
     // Obtener los Disparadores
     $sql_category = "SELECT category, name, description, icon, value FROM blocks_type WHERE category = 'Disparadores'";
     $result_category = $conn->query($sql_category);
-    
+
     $blocks_type = array();
-    
+
     if ($result_category->num_rows > 0) {
         // Salida de datos de cada fila
-        while($row_category = $result_category->fetch_assoc()) {
+        while ($row_category = $result_category->fetch_assoc()) {
             $blocks_type[] = $row_category;
         }
     }
-    
+
     /*
     // Verificar si el array tiene datos
     if (empty($blocks_type)) {
@@ -44,9 +44,9 @@ if ($id_automatizador) {
         echo "El array contiene datos.";
     }
     */
-    
+
     //echo "holaaa".json_encode($blocks_type);
-    
+
     $blocks_type = [
         [
             'id' => 1,
@@ -201,10 +201,9 @@ if ($id_automatizador) {
 
     // Formatear las plantillas de Facebook al formato deseado
     $templatesOptions = array(array("id" => "0", "text" => "Seleccionar opción"));
-    $templatesOptions = array_merge($templatesOptions, array_map(function($template) {
+    $templatesOptions = array_merge($templatesOptions, array_map(function ($template) {
         return array("id" => $template["id"], "text" => $template["name"]);
     }, $facebook_templates));
-
 } else {
     // Redirigir a tabla_automatizadores.php si id_automatizador no está presente en la URL
     header("Location: tabla_automatizadores.php");
@@ -216,14 +215,14 @@ if ($id_automatizador) {
 
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <!-- Primary Meta Tags -->
     <title>Automatizador <?php echo $nombre_automatizador; ?> - ImportSuit</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
-      rel="stylesheet"
-    />
+        href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
+        rel="stylesheet" />
     <link href="styles.css" rel="stylesheet" type="text/css" />
     <!-- Incluye Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -239,378 +238,446 @@ if ($id_automatizador) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://kit.fontawesome.com/e141005de3.js" crossorigin="anonymous"></script>
     <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
-    <script> 
-    
-      <?php if (!empty($json_output) && $json_output !== '[]') { ?>
+        name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <script>
+        <?php if (!empty($json_output) && $json_output !== '[]') { ?>
 
-      // Pasar los datos de PHP a JavaScript y parsear a formato de array
-      window.flowlyOutputBlocks = JSON.parse('<?php echo addslashes($json_output); ?>');
+            // Pasar los datos de PHP a JavaScript y parsear a formato de array
+            window.flowlyOutputBlocks = JSON.parse('<?php echo addslashes($json_output); ?>');
 
-      <?php } ?>
+        <?php } ?>
 
-      window.id_configuracion = <?php echo $id_configuracion; ?>;
+        window.id_configuracion = <?php echo $id_configuracion; ?>;
 
-      window.blocks_type = JSON.parse('<?php echo json_encode($blocks_type); ?>');
+        window.blocks_type = JSON.parse('<?php echo json_encode($blocks_type); ?>');
 
-      window.facebookTemplates = JSON.parse('<?php echo json_encode($templatesOptions); ?>');
-      //console.log(window.facebookTemplates);
+        window.facebookTemplates = JSON.parse('<?php echo json_encode($templatesOptions); ?>');
+        //console.log(window.facebookTemplates);
 
 
-      window.selectMultipleOptions = {
-                        "Productos": [
-                            { id: "0", text: "Todos los Productos" },
-                            { id: "1", text: "Producto 1" },
-                            { id: "2", text: "Producto 2" },
-                            { id: "2", text: "Producto 3" },
-                            { id: "3", text: "Producto 4" }
-                        ],
-                        "Categorias": [
-                            { id: "0", text: "Todas las Categorias" },
-                            { id: "1", text: "Categoria 1" },
-                            { id: "2", text: "Categoria 2" },
-                            { id: "3", text: "Categoria 3" }
-                        ],
-                        "Status": [
-                            { id: "0", text: "Todos los Estados" },
-                            { id: "1", text: "Estado 1" },
-                            { id: "2", text: "Estado 2" },
-                            { id: "3", text: "Estado 3" }
-                        ],
-                        "Novedad": [
-                            { id: "0", text: "Todas las Novedades" },
-                            { id: "1", text: "Novedad 1" },
-                            { id: "2", text: "Novedad 2" },
-                            { id: "3", text: "Novedad 3" }
-                        ],
-                        "Provincia": [
-                            { id: "0", text: "Todas las Provincias" },
-                            { id: "1", text: "Provincia 1" },
-                            { id: "2", text: "Provincia 2" },
-                            { id: "3", text: "Provincia 3" }
-                        ],
-                        "Ciudad": [
-                            { id: "0", text: "Todas las Ciudades" },
-                            { id: "1", text: "Ciudad 1" },
-                            { id: "2", text: "Ciudad 2" },
-                            { id: "3", text: "Ciudad 3" }
-                        ],
-                        "id_whatsapp_message_template": window.facebookTemplates
-                    }
-        
-            window.response_template_facebook = <?php echo $response; ?>;
-            console.log(window.response_template_facebook);
+        /* llenar varible window.selectMultipleOptions */
+        // JSON inicial vacío o con placeholders
+        window.selectMultipleOptions = {
+            "Productos": [],
+            "Categorias": [],
+            "Status": [{
+                    id: "0",
+                    text: "Todos los Estados"
+                },
+                {
+                    id: "1",
+                    text: "Estado 1"
+                },
+                {
+                    id: "2",
+                    text: "Estado 2"
+                },
+                {
+                    id: "3",
+                    text: "Estado 3"
+                }
+            ],
+            "Novedad": [{
+                    id: "0",
+                    text: "Todas las Novedades"
+                },
+                {
+                    id: "1",
+                    text: "Novedad 1"
+                },
+                {
+                    id: "2",
+                    text: "Novedad 2"
+                },
+                {
+                    id: "3",
+                    text: "Novedad 3"
+                }
+            ],
+            "Provincia": [],
+            "Ciudad": [],
+            "id_whatsapp_message_template": window.facebookTemplates || []
+        };
 
-            function updateMessage() {
-                var selectedValue = document.getElementById('id_whatsapp_message_template').value;
-                var templateData = window.response_template_facebook.data.find(template => template.id === selectedValue);
+        // Función para actualizar la sección "Productos" con los datos de la API
+        function cargarProductos() {
+            $.ajax({
+                url: 'https://new.imporsuitpro.com/productos/obtener_productos_tienda',
+                method: 'GET',
+                success: function(response) {
+                    // Aquí asumimos que 'response' contiene un array de productos
+                    window.selectMultipleOptions.Productos = response.map(function(producto) {
+                        return {
+                            id: producto.id_producto_tienda,
+                            text: producto.nombre_producto_tienda
+                        };
+                    });
+                    console.log('Productos cargados:', window.selectMultipleOptions.Productos);
+                },
+                error: function(error) {
+                    console.error('Error al cargar productos:', error);
+                }
+            });
+        }
 
-                if (templateData) {
-                    var bodyComponent = templateData.components.find(component => component.type === 'BODY');
-                    if (bodyComponent) {
-                        document.getElementById('mensaje').value = bodyComponent.text;
-                    }
+        // Función para actualizar la sección "Categorias" con los datos de la API
+        function cargarCategorias() {
+            $.ajax({
+                url: 'https://new.imporsuitpro.com/productos/productos/cargar_categorias',
+                method: 'GET',
+                success: function(response) {
+                    window.selectMultipleOptions.Categorias = response.map(function(categoria) {
+                        return {
+                            id: categoria.id_linea,
+                            text: categoria.nombre_linea
+                        };
+                    });
+                    console.log('Categorias cargadas:', window.selectMultipleOptions.Categorias);
+                },
+                error: function(error) {
+                    console.error('Error al cargar categorías:', error);
+                }
+            });
+        }
+
+        // Función para cargar todas las opciones
+        function cargarTodasLasOpciones() {
+            cargarProductos(); // Carga los productos
+            cargarCategorias(); // Carga las categorías
+            // Añade más funciones para cargar el resto de las secciones (Status, Novedad, Provincia, Ciudad) si es necesario
+        }
+
+        // Ejecuta la función para cargar las opciones cuando la página se carga
+        $(document).ready(function() {
+            cargarTodasLasOpciones();
+        });
+        /* Fin llenar varible window.selectMultipleOptions */
+
+        window.response_template_facebook = <?php echo $response; ?>;
+        console.log(window.response_template_facebook);
+
+        function updateMessage() {
+            var selectedValue = document.getElementById('id_whatsapp_message_template').value;
+            var templateData = window.response_template_facebook.data.find(template => template.id === selectedValue);
+
+            if (templateData) {
+                var bodyComponent = templateData.components.find(component => component.type === 'BODY');
+                if (bodyComponent) {
+                    document.getElementById('mensaje').value = bodyComponent.text;
                 }
             }
-
+        }
     </script>
     <script src="lib/flowy-master/flowy.min.js"></script>
     <script src="main.js"></script>
-    <?php //require "main.php" ?>
-  </head>
-  <body>
+    <?php //require "main.php" 
+    ?>
+</head>
+
+<body>
     <div id="navigation">
-      <div id="leftside">
-        <div id="details">
-          <div id="back"><img src="assets/arrow.svg" /></div>
-          <div id="names">
-            <p id="title">Automatizador - <?php echo $nombre_automatizador; ?></p>
-            <p id="subtitle">Constructor Visual</p>
-          </div>
+        <div id="leftside">
+            <div id="details">
+                <div id="back"><img src="assets/arrow.svg" /></div>
+                <div id="names">
+                    <p id="title">Automatizador - <?php echo $nombre_automatizador; ?></p>
+                    <p id="subtitle">Constructor Visual</p>
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- 
+        <!-- 
       <div id="centerswitch">
-        <div id="leftswitch"><?php //echo $nombre_automatizador; ?></div>
+        <div id="leftswitch"><?php //echo $nombre_automatizador; 
+                                ?></div>
         
       </div>
       -->
-      <div id="buttonsright">
-        <!-- <div id="discard"><div id="removeblock"><i class="fa fa-trash"></i> Borrar</div></div> -->
-        <div id="discard"><div id="removeblock"><i class="fa fa-arrow-left-o"></i> Regresar</div></div>
-        <div id="publish" onclick="guardarAutomatizador()"><i class="fa fa-floppy"></i> Guardar y Salir</div>
-      </div>
+        <div id="buttonsright">
+            <!-- <div id="discard"><div id="removeblock"><i class="fa fa-trash"></i> Borrar</div></div> -->
+            <div id="discard">
+                <div id="removeblock"><i class="fa fa-arrow-left-o"></i> Regresar</div>
+            </div>
+            <div id="publish" onclick="guardarAutomatizador()"><i class="fa fa-floppy"></i> Guardar y Salir</div>
+        </div>
     </div>
 
     <div id="leftcard2" style="display: none;">
-        <div id="opencard" >
+        <div id="opencard">
             <img src="assets/closeleft.svg" />
         </div>
     </div>
     <div id="leftcard">
-      <div id="closecard">
-        <img src="assets/closeleft.svg" />
-      </div>
-      <p id="header">Bloques</p>
-      <div id="search">
-        <img src="assets/search.svg" />
-        <input type="text" placeholder="Buscar Bloques" />
-      </div>
-      <div id="subnav">
-        <div id="triggers" class="navactive side">Disparadores</div>
-        <div id="actions" class="navdisabled side">Acciones</div>
-        <div id="loggers" class="navdisabled side">Condiciones</div>
-      </div>
-      <div id="blocklist">
-      </div>
-      <div id="footer">
-        <a href="https://alfaingenius.com" target="_blank"
-          ><p>Hecho por</p>
-          <p>by</p>
-          AlfaIngenius</a
-        >
-      </div>
+        <div id="closecard">
+            <img src="assets/closeleft.svg" />
+        </div>
+        <p id="header">Bloques</p>
+        <div id="search">
+            <img src="assets/search.svg" />
+            <input type="text" placeholder="Buscar Bloques" />
+        </div>
+        <div id="subnav">
+            <div id="triggers" class="navactive side">Disparadores</div>
+            <div id="actions" class="navdisabled side">Acciones</div>
+            <div id="loggers" class="navdisabled side">Condiciones</div>
+        </div>
+        <div id="blocklist">
+        </div>
+        <div id="footer">
+            <a href="https://alfaingenius.com" target="_blank">
+                <p>Hecho por</p>
+                <p>by</p>
+                AlfaIngenius
+            </a>
+        </div>
     </div>
 
     <div id="propwrap">
-      <div id="properties">
-        <div id="close">
-          <img src="assets/close.svg" />
-        </div>
-        <p id="header2">Información</p>
-        <div id="propswitch">
-          
-        </div>
-        <script>
+        <div id="properties">
+            <div id="close">
+                <img src="assets/close.svg" />
+            </div>
+            <p id="header2">Información</p>
+            <div id="propswitch">
 
-            <?php if (!empty($json_bloques) && $json_bloques !== '[]') { ?>
-            // Pasar los datos de PHP a JavaScript y parsear a formato de array
-            let formDataByBlock = JSON.parse('<?php echo addslashes($json_bloques); ?>');
-            <?php } else { ?>
-            let formDataByBlock = [];
-            <?php } ?>
+            </div>
+            <script>
+                <?php if (!empty($json_bloques) && $json_bloques !== '[]') { ?>
+                    // Pasar los datos de PHP a JavaScript y parsear a formato de array
+                    let formDataByBlock = JSON.parse('<?php echo addslashes($json_bloques); ?>');
+                <?php } else { ?>
+                    let formDataByBlock = [];
+                <?php } ?>
 
-            // Definir la función obtenerValoresFormulario
-            function obtenerValoresFormulario() {
-                const formData = {};
+                // Definir la función obtenerValoresFormulario
+                function obtenerValoresFormulario() {
+                    const formData = {};
 
-                // Obtener todos los elementos del formulario
-                const formElements = document.getElementById('myForm').elements;
+                    // Obtener todos los elementos del formulario
+                    const formElements = document.getElementById('myForm').elements;
 
-                // Iterar a través de los elementos del formulario
-                for (let i = 0; i < formElements.length; i++) {
-                    const element = formElements[i];
-                    const elementType = element.type;
-                    const elementName = element.name;
+                    // Iterar a través de los elementos del formulario
+                    for (let i = 0; i < formElements.length; i++) {
+                        const element = formElements[i];
+                        const elementType = element.type;
+                        const elementName = element.name;
 
-                    // Ignorar los botones de envío y los campos ocultos
-                    if (elementType !== 'submit') {
-                        // Si es un elemento de selección múltiple, obtener los valores seleccionados
-                        if (elementType === 'select-multiple') {
-                            const selectedOptions = [];
-                            for (let j = 0; j < element.options.length; j++) {
-                                if (element.options[j].selected) {
-                                    selectedOptions.push(element.options[j].value);
+                        // Ignorar los botones de envío y los campos ocultos
+                        if (elementType !== 'submit') {
+                            // Si es un elemento de selección múltiple, obtener los valores seleccionados
+                            if (elementType === 'select-multiple') {
+                                const selectedOptions = [];
+                                for (let j = 0; j < element.options.length; j++) {
+                                    if (element.options[j].selected) {
+                                        selectedOptions.push(element.options[j].value);
+                                    }
                                 }
+                                formData[elementName] = selectedOptions;
+                            } else {
+                                // Para otros tipos de elementos, simplemente obtener su valor
+                                formData[elementName] = element.value;
                             }
-                            formData[elementName] = selectedOptions;
-                        } else {
-                            // Para otros tipos de elementos, simplemente obtener su valor
-                            formData[elementName] = element.value;
                         }
                     }
+
+                    // Obtener el valor del campo id_block
+                    const idBlockValue = formData['id_block'];
+
+                    // Almacenar los datos del formulario en formDataByBlock organizados por id_block
+                    formDataByBlock[idBlockValue] = formData;
+
+                    console.log(formDataByBlock); // Imprimir los datos en la consola
                 }
 
-                // Obtener el valor del campo id_block
-                const idBlockValue = formData['id_block'];
+                function extractInfo(htmlString) {
+                    // Crear un nuevo DOMParser
+                    const parser = new DOMParser();
+                    // Parsear el HTML string en un documento DOM
+                    const doc = parser.parseFromString(htmlString, 'text/html');
 
-                // Almacenar los datos del formulario en formDataByBlock organizados por id_block
-                formDataByBlock[idBlockValue] = formData;
+                    // Seleccionar todos los elementos con la clase 'blockelem'
+                    const blocks = doc.querySelectorAll('.blockelem');
+                    const blocksInfo = [];
 
-                console.log(formDataByBlock); // Imprimir los datos en la consola
-            }
+                    // Iterar sobre cada 'blockelem' para extraer la información
+                    blocks.forEach(block => {
+                        const type = block.querySelector('input[name="blockelemtype"]').value;
+                        const id = block.querySelector('input[name="blockid"]').value;
+                        const name = block.querySelector('.blockyname').textContent.trim();
+                        const description = block.querySelector('.blockyinfo p').textContent.trim();
 
-            function extractInfo(htmlString) {
-                // Crear un nuevo DOMParser
-                const parser = new DOMParser();
-                // Parsear el HTML string en un documento DOM
-                const doc = parser.parseFromString(htmlString, 'text/html');
-                
-                // Seleccionar todos los elementos con la clase 'blockelem'
-                const blocks = doc.querySelectorAll('.blockelem');
-                const blocksInfo = [];
+                        blocksInfo.push({
+                            type,
+                            id,
+                            name,
+                            description
+                        }); //, name, description });
+                    });
 
-                // Iterar sobre cada 'blockelem' para extraer la información
-                blocks.forEach(block => {
-                    const type = block.querySelector('input[name="blockelemtype"]').value;
-                    const id = block.querySelector('input[name="blockid"]').value;
-                    const name = block.querySelector('.blockyname').textContent.trim();
-                    const description = block.querySelector('.blockyinfo p').textContent.trim();
-                    
-                    blocksInfo.push({ type, id, name , description }); //, name, description });
-                });
+                    // Seleccionar todos los elementos con la clase 'arrowblock'
+                    const arrows = doc.querySelectorAll('.arrowblock');
+                    const arrowsInfo = [];
 
-                // Seleccionar todos los elementos con la clase 'arrowblock'
-                const arrows = doc.querySelectorAll('.arrowblock');
-                const arrowsInfo = [];
+                    // Iterar sobre cada 'arrowblock' para extraer la información
+                    arrows.forEach(arrow => {
+                        const arrowId = arrow.querySelector('.arrowid').value;
+                        arrowsInfo.push({
+                            arrowId
+                        });
+                    });
 
-                // Iterar sobre cada 'arrowblock' para extraer la información
-                arrows.forEach(arrow => {
-                    const arrowId = arrow.querySelector('.arrowid').value;
-                    arrowsInfo.push({ arrowId });
-                });
-
-                // Retornar la información extraída
-                return { blocks: blocksInfo };
-            }
-
-            function combinarJSONs(jsonOrdenBloques, jsonTipoBloques, jsonInfoBloques) {
-                const ordenBloques = jsonOrdenBloques;
-                const tipoBloques = jsonTipoBloques;
-                const infoBloques = jsonInfoBloques;
-
-                const bloquesCombinados = ordenBloques.map(bloque => {
-                    const tipoBloque = tipoBloques.blocks.find(t => t.id === String(bloque.id));
-                    const infoBloque = infoBloques[bloque.id];
-
+                    // Retornar la información extraída
                     return {
-                        ...bloque,
-                        tipo: tipoBloque ? tipoBloque.type : null,
-                        name_type: tipoBloque ? tipoBloque.name : null,
-                        description_type: tipoBloque ? tipoBloque.description : null,
-                        info: infoBloque ? infoBloque : null
+                        blocks: blocksInfo
                     };
-                });
+                }
 
-                return bloquesCombinados;
-            }
+                function combinarJSONs(jsonOrdenBloques, jsonTipoBloques, jsonInfoBloques) {
+                    const ordenBloques = jsonOrdenBloques;
+                    const tipoBloques = jsonTipoBloques;
+                    const infoBloques = jsonInfoBloques;
 
-            // Función para mostrar una alerta con el contenido de formDataByBlock
-            function guardarAutomatizador() {
-                //alert(JSON.stringify(formDataByBlock, null, 2)+" - "+JSON.stringify(flowy.output()));
-                /*
-                console.log("JSON Flowly Output Bloques: "+JSON.stringify(flowy.output()));
-                console.log("var json_orden_bloques = '"+JSON.stringify(flowy.output().blocks)+"'");
-                console.log("var json_tipo_bloques = '"+JSON.stringify(extractInfo(flowy.output().html))+"'");
-                console.log("var json_info_bloques = '"+JSON.stringify(formDataByBlock)+"'");
-                */
-                
-                //enviar datos a la base de datos para que al abrirse el documento, se cargue directamente
-                var json_flowly_output = flowy.output();
-                var json_info_bloques = formDataByBlock;
+                    const bloquesCombinados = ordenBloques.map(bloque => {
+                        const tipoBloque = tipoBloques.blocks.find(t => t.id === String(bloque.id));
+                        const infoBloque = infoBloques[bloque.id];
 
-                //enviar datos para que se procese solicitud y se creen o actualicen los bloques: (disparadores, acciones, desciciones)
-                var json_resultado_automatizador = combinarJSONs(flowy.output().blocks , extractInfo(flowy.output().html) , formDataByBlock);
-                console.log(json_resultado_automatizador);
+                        return {
+                            ...bloque,
+                            tipo: tipoBloque ? tipoBloque.type : null,
+                            name_type: tipoBloque ? tipoBloque.name : null,
+                            description_type: tipoBloque ? tipoBloque.description : null,
+                            info: infoBloque ? infoBloque : null
+                        };
+                    });
 
-                /*
-                // Crear un objeto JSON general para agrupar todos los JSONs
-                var json_general = {
-                    "flowly_output": json_flowly_output,
-                    "info_bloques": formDataByBlock,
-                    "resultado_automatizador": json_resultado_automatizador
-                };
-                */
+                    return bloquesCombinados;
+                }
 
-                var flowlyoutput_json = flowy.output();
-                flowlyoutput_json.html = [];
+                // Función para mostrar una alerta con el contenido de formDataByBlock
+                function guardarAutomatizador() {
+                    //alert(JSON.stringify(formDataByBlock, null, 2)+" - "+JSON.stringify(flowy.output()));
+                    /*
+                    console.log("JSON Flowly Output Bloques: "+JSON.stringify(flowy.output()));
+                    console.log("var json_orden_bloques = '"+JSON.stringify(flowy.output().blocks)+"'");
+                    console.log("var json_tipo_bloques = '"+JSON.stringify(extractInfo(flowy.output().html))+"'");
+                    console.log("var json_info_bloques = '"+JSON.stringify(formDataByBlock)+"'");
+                    */
 
-                // Enviar los datos al servidor
-                fetch('guardar_automatizador.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        "id_automatizador": "<?php echo $_GET['id_automatizador']; ?>",
-                        "flowly_output": flowlyoutput_json,
+                    //enviar datos a la base de datos para que al abrirse el documento, se cargue directamente
+                    var json_flowly_output = flowy.output();
+                    var json_info_bloques = formDataByBlock;
+
+                    //enviar datos para que se procese solicitud y se creen o actualicen los bloques: (disparadores, acciones, desciciones)
+                    var json_resultado_automatizador = combinarJSONs(flowy.output().blocks, extractInfo(flowy.output().html), formDataByBlock);
+                    console.log(json_resultado_automatizador);
+
+                    /*
+                    // Crear un objeto JSON general para agrupar todos los JSONs
+                    var json_general = {
+                        "flowly_output": json_flowly_output,
                         "info_bloques": formDataByBlock,
-                        "resultado_automatizador": combinarJSONs(flowy.output().blocks, extractInfo(flowy.output().html), formDataByBlock)
-                    })
-                })
-                .then(response => {
-                    if (response.ok) {
-                        // Si la respuesta es exitosa, obtener la respuesta del servidor como texto
-                        response.text().then(function (text) {
-                            // Imprimir la respuesta del servidor en la consola
-                            console.log(text);
-                            // Abrir una nueva pestaña con la URL del archivo PHP
-                            //window.open('guardar_automatizador.php', '_blank');
+                        "resultado_automatizador": json_resultado_automatizador
+                    };
+                    */
+
+                    var flowlyoutput_json = flowy.output();
+                    flowlyoutput_json.html = [];
+
+                    // Enviar los datos al servidor
+                    fetch('guardar_automatizador.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                "id_automatizador": "<?php echo $_GET['id_automatizador']; ?>",
+                                "flowly_output": flowlyoutput_json,
+                                "info_bloques": formDataByBlock,
+                                "resultado_automatizador": combinarJSONs(flowy.output().blocks, extractInfo(flowy.output().html), formDataByBlock)
+                            })
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                // Si la respuesta es exitosa, obtener la respuesta del servidor como texto
+                                response.text().then(function(text) {
+                                    // Imprimir la respuesta del servidor en la consola
+                                    console.log(text);
+                                    // Abrir una nueva pestaña con la URL del archivo PHP
+                                    //window.open('guardar_automatizador.php', '_blank');
+                                });
+
+                                window.location.href = 'tabla_automatizadores.php?id_configuracion=' + window.id_configuracion;
+                            } else {
+                                // Si hay un error en la respuesta del servidor, mostrar un mensaje de error
+                                console.error('Error al enviar JSON a PHP.');
+                            }
+                        })
+                        .catch(error => {
+                            // Si hay un error de red, mostrar un mensaje de error
+                            console.error('Error de red:', error);
                         });
 
-                        window.location.href = 'tabla_automatizadores.php?id_configuracion='+window.id_configuracion;
-                    } else {
-                        // Si hay un error en la respuesta del servidor, mostrar un mensaje de error
-                        console.error('Error al enviar JSON a PHP.');
-                    }
-                })
-                .catch(error => {
-                    // Si hay un error de red, mostrar un mensaje de error
-                    console.error('Error de red:', error);
-                });
+                }
 
-            }
+                // Obtiene el ID de automatizador desde la URL
+                function getAutomatizadorIdFromUrl() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get('id_automatizador');
+                }
 
-            // Obtiene el ID de automatizador desde la URL
-            function getAutomatizadorIdFromUrl() {
-                        const urlParams = new URLSearchParams(window.location.search);
-                        return urlParams.get('id_automatizador');
-            }
-
-            /*
-            // Función para generar las opciones del select
-            function loadTemplateOptions(selectedTemplate) {
-                const idAutomatizador = getAutomatizadorIdFromUrl();
-                $.ajax({
-                    url: 'conexion_mensajesplantilla.php',
-                    type: 'GET',
-                    data: {
-                        id_automatizador: idAutomatizador,
-                        fields: 'name,status',
-                        limit: 10
-                    },
-                    success: function(response) {
-                        console.log(response);
-                        let html = '<option value="">Select a Template</option>';
-                        if (response.length > 0) {
-                            response.forEach(function(template) {
-                                const isSelected = selectedTemplate == template.id ? "selected" : "";
-                                html += `<option value="${template.id}" ${isSelected}>${template.name} (${template.status})</option>`;
-                            });
+                /*
+                // Función para generar las opciones del select
+                function loadTemplateOptions(selectedTemplate) {
+                    const idAutomatizador = getAutomatizadorIdFromUrl();
+                    $.ajax({
+                        url: 'conexion_mensajesplantilla.php',
+                        type: 'GET',
+                        data: {
+                            id_automatizador: idAutomatizador,
+                            fields: 'name,status',
+                            limit: 10
+                        },
+                        success: function(response) {
+                            console.log(response);
+                            let html = '<option value="">Select a Template</option>';
+                            if (response.length > 0) {
+                                response.forEach(function(template) {
+                                    const isSelected = selectedTemplate == template.id ? "selected" : "";
+                                    html += `<option value="${template.id}" ${isSelected}>${template.name} (${template.status})</option>`;
+                                });
+                            }
+                            $('#id_whatsapp_message_template').html(html);
+                        },
+                        error: function() {
+                            alert('Failed to fetch templates');
+                            $('#id_whatsapp_message_template').html('<option value="">Select a Template</option>');
                         }
-                        $('#id_whatsapp_message_template').html(html);
-                    },
-                    error: function() {
-                        alert('Failed to fetch templates');
-                        $('#id_whatsapp_message_template').html('<option value="">Select a Template</option>');
-                    }
-                });
-            }
-            */
+                    });
+                }
+                */
 
-            //console.log("id_automatizador"+getAutomatizadorIdFromUrl());
-            document.addEventListener('DOMContentLoaded', function () {
-                
-            });
-        </script>
-        <div id="proplist">
-          <p class="inputlabel">Select database</p>
-          <div class="dropme">Database 1 <img src="assets/dropdown.svg" /></div>
-          <p class="inputlabel">Check properties</p>
-          <div class="dropme">All<img src="assets/dropdown.svg" /></div>
-          <div class="checkus">
-            <img src="assets/checkon.svg" />
-            <p>Log on successful performance</p>
-          </div>
-          <div class="checkus">
-            <img src="assets/checkoff.svg" />
-            <p>Give priority to this block</p>
-          </div>
+                //console.log("id_automatizador"+getAutomatizadorIdFromUrl());
+                document.addEventListener('DOMContentLoaded', function() {
+
+                });
+            </script>
+            <div id="proplist">
+                <p class="inputlabel">Select database</p>
+                <div class="dropme">Database 1 <img src="assets/dropdown.svg" /></div>
+                <p class="inputlabel">Check properties</p>
+                <div class="dropme">All<img src="assets/dropdown.svg" /></div>
+                <div class="checkus">
+                    <img src="assets/checkon.svg" />
+                    <p>Log on successful performance</p>
+                </div>
+                <div class="checkus">
+                    <img src="assets/checkoff.svg" />
+                    <p>Give priority to this block</p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <div id="canvas"></div>
-  </body>
+</body>
+
 </html>
