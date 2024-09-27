@@ -5,6 +5,7 @@ if (isset($_SESSION['id_plataforma'])) {
 } else {
     if (isset($_COOKIE['id_plataforma'])) {
         $_SESSION['id_plataforma'] = $_COOKIE['id_plataforma'];
+        $_SESSION["user"] = $_COOKIE["user"];
     } else {
         header("Location: login.php");
         exit();
