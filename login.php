@@ -1,31 +1,68 @@
 <?php
 session_start();
-isset($_COOKIE["id_plataforma"]) ? $_SESSION["id_plataforma"] = $_COOKIE["id_plataforma"] : "";
-isset($_SESSION['id_plataforma']) ? header("Location: constructor_automatizador.php") : "";
 
+// Comprobar si la sesión o la cookie ya existen y redirigir si es así
+if (isset($_SESSION['id_plataforma'])) {
+    header("Location: constructor_automatizador.php");
+    exit();
+}
+
+if (isset($_COOKIE["id_plataforma"])) {
+    $_SESSION["id_plataforma"] = $_COOKIE["id_plataforma"];
+    header("Location: constructor_automatizador.php");
+    exit();
+}
+// Procesar el formulario si se ha enviado
 if (isset($_POST['email'])) {
-    require 'db.php';
+    $servername = "localhost";
+    $dbname = "imporsuitpro_new";
+    $username = "imporsuit_system"; // Usuario por defecto de XAMPP
+    $password = "imporsuit_system"; // Sin contraseña por defecto
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } else {
+        //echo "Connection successful!";
+    }
 
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM users WHERE email_users = '$email'";
-    $result = $conn->query($sql);
+    // Prevenir inyección SQL utilizando consultas preparadas
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email_users = ?");
+    $stmt->bind_param('s', $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+
+        // Verificar contraseña
         if (password_verify($password, $row['con_users'])) {
 
-            $sql = "SELECT * FROM usuario_plataforma WHERE id_usuario = " . $row['id'];
-            $result = $conn->query($sql);
+            // Obtener la plataforma del usuario
+            $stmt = $conn->prepare("SELECT * FROM usuario_plataforma WHERE id_usuario = ?");
+            $stmt->bind_param('i', $row['id_users']);
+            $stmt->execute();
+            $result = $stmt->get_result();
             $row = $result->fetch_assoc();
 
-            $_SESSION['id_plataforma'] = $row['id_plataforma'];
 
+            // Guardar en la sesión y cookie
+            $_SESSION['id_plataforma'] = $row['id_plataforma'];
+            setcookie('id_plataforma', $row['id_plataforma'], time() + 60 * 60 * 24 * 30, "/", "", true, true); // Cookie segura (HTTPOnly y Secure)
+
+            // Si el usuario selecciona 'Recordar', guardar una cookie adicional
             if (isset($_POST['remember'])) {
-                setcookie('id_plataforma', $row['id'], time() + 60 * 60 * 24 * 30);
+                setcookie('id_plataforma', $row['id_plataforma'], time() + 60 * 60 * 24 * 30, "/", "", true, true);
             }
+
+            // Redirigir al constructor
             header("Location: constructor_automatizador.php");
+            exit();
         } else {
             echo "Contraseña incorrecta";
         }
@@ -33,7 +70,6 @@ if (isset($_POST['email'])) {
         echo "Usuario no encontrado";
     }
 }
-
 
 ?>
 
