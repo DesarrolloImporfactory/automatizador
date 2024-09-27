@@ -332,6 +332,9 @@ if ($id_automatizador) {
             $.ajax({
                 url: 'https://new.imporsuitpro.com/productos/productos/cargar_categorias',
                 method: 'GET',
+                xhrFields: {
+                    withCredentials: true
+                },
                 success: function(response) {
                     window.selectMultipleOptions.Categorias = response.map(function(categoria) {
                         return {
