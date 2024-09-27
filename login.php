@@ -1,6 +1,6 @@
 <?php
 session_start();
-isset($_SESSION['id_plataforma']) ? header("Location: tabla_configuraciones.php") : "";
+isset($_SESSION['id_plataforma']) ? header("Location: constructor_automatizador.php") : "";
 
 if (isset($_POST['email'])) {
     require 'db.php';
@@ -24,7 +24,7 @@ if (isset($_POST['email'])) {
             if (isset($_POST['remember'])) {
                 setcookie('id_plataforma', $row['id'], time() + 60 * 60 * 24 * 30);
             }
-            header("Location: tabla_configuraciones.php");
+            header("Location: constructor_automatizador.php");
         } else {
             echo "Contraseña incorrecta";
         }
