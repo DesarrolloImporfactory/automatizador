@@ -24,7 +24,7 @@ if (!$id_configuracion) {
             confirmButtonText: 'Aceptar'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = 'tabla_configuraciones.php';
+                window.location.href = 'https://new.imporsuitpro.com/pedidos/configuracion_chats_imporsuit';
             }
         });
     </script>

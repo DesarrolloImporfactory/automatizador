@@ -1,5 +1,6 @@
 <?php
 session_start();
+isset($_COOKIE["id_plataforma"]) ? $_SESSION["id_plataforma"] = $_COOKIE["id_plataforma"] : "";
 isset($_SESSION['id_plataforma']) ? header("Location: constructor_automatizador.php") : "";
 
 if (isset($_POST['email'])) {
