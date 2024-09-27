@@ -308,6 +308,9 @@ if ($id_automatizador) {
             $.ajax({
                 url: 'https://new.imporsuitpro.com/productos/obtener_productos_tienda',
                 method: 'GET',
+                xhrFields: {
+                    withCredentials: true
+                },
                 success: function(response) {
                     // Aquí asumimos que 'response' contiene un array de productos
                     window.selectMultipleOptions.Productos = response.map(function(producto) {
