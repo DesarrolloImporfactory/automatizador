@@ -10,6 +10,9 @@ $json_bloques = [];
 $facebook_templates = [];
 
 if ($id_automatizador) {
+
+
+
     // Realizar la consulta para obtener json_output y json_bloques
     $query = "SELECT json_output, json_bloques, nombre, id_configuracion FROM automatizadores WHERE id = ?";
     $stmt = $conn->prepare($query);
@@ -353,7 +356,7 @@ if ($id_automatizador) {
             cargarTodasLasOpciones();
         });
         /* Fin llenar varible window.selectMultipleOptions */
-        
+
 
         window.response_template_facebook = <?php echo $response; ?>;
         console.log(window.response_template_facebook);

@@ -28,7 +28,52 @@ if (!$id_configuracion) {
             }
         });
     </script>
+    <?php
+    exit;
+}
+
+
+//validar si id_plataforma es igual al de la configuracion
+
+$id_plataforma = $_SESSION['id_plataforma'];
+$sql = "SELECT id_plataforma FROM configuraciones WHERE id='$id_configuracion'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    if ($row['id_plataforma'] != $id_plataforma) {
+    ?>
+        <script>
+            Swal.fire({
+                title: 'No tienes permisos para acceder a esta configuración',
+                text: 'Serás redirigido a la tabla de configuraciones para seleccionar una',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'https://new.imporsuitpro.com/pedidos/configuracion_chats_imporsuit';
+                }
+            });
+        </script>
+    <?php
+
+        exit;
+    }
+} else {
+    ?>
+    <script>
+        Swal.fire({
+            title: 'No tienes permisos para acceder a esta configuración',
+            text: 'Serás redirigido a la tabla de configuraciones para seleccionar una',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'https://new.imporsuitpro.com/pedidos/configuracion_chats_imporsuit';
+            }
+        });
+    </script>
 <?php
+
     exit;
 }
 
