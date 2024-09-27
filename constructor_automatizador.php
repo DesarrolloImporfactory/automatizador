@@ -308,6 +308,7 @@ if ($id_automatizador) {
             $.ajax({
                 url: 'https://new.imporsuitpro.com/productos/obtener_productos_tienda',
                 method: 'GET',
+                dataType: "json",
                 xhrFields: {
                     withCredentials: true
                 },
@@ -332,6 +333,7 @@ if ($id_automatizador) {
             $.ajax({
                 url: 'https://new.imporsuitpro.com/productos/cargar_categorias',
                 method: 'GET',
+                dataType: "json",
                 xhrFields: {
                     withCredentials: true
                 },
