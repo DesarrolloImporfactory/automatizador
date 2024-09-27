@@ -86,6 +86,8 @@ if (isset($_POST['email'])) {
     <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <div class="flex justify-center mb-6">
             <!-- Aquí puedes poner tu logo -->
+            <span class=""></span>
+
             <img src="path-to-your-logo.png" alt="Logo" class="h-12">
         </div>
         <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Login</h1>
