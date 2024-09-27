@@ -46,10 +46,26 @@ if (isset($_POST['email'])) {
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-    </h1>
+<body class="bg-gray-200 min-h-screen grid place-content-center items-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold text-center">Iniciar sesión</h1>
+        <form action="login.php" method="POST" class="mt-4">
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico</label>
+                <input type="email" name="email" id="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+                <input type="password" name="password" id="password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+            </div>
+            <div class="mb-4">
+                <input type="checkbox" name="remember" id="remember" class="mr-2">
+                <label for="remember" class="text-sm font-medium text-gray-700">Recordar mi cuenta</label>
+            </div>
+            <button type="submit" class="w-full bg-indigo-600 text-white p-2 rounded-md">Iniciar sesión</button>
+        </form>
+    </div>
+
 </body>
 
 </html>
