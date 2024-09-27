@@ -330,7 +330,7 @@ if ($id_automatizador) {
         // Función para actualizar la sección "Categorias" con los datos de la API
         function cargarCategorias() {
             $.ajax({
-                url: 'https://new.imporsuitpro.com/productos/productos/cargar_categorias',
+                url: 'https://new.imporsuitpro.com/productos/cargar_categorias',
                 method: 'GET',
                 xhrFields: {
                     withCredentials: true
