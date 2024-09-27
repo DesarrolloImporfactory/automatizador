@@ -1,4 +1,15 @@
 <?php
+session_start();
+
+if (isset($_SESSION['id_plataforma'])) {
+} else {
+    if (isset($_COOKIE['id_plataforma'])) {
+        $_SESSION['id_plataforma'] = $_COOKIE['id_plataforma'];
+    } else {
+        header("Location: login.php");
+        exit();
+    }
+}
 $servername = "localhost";
 $dbname = "imporsuitpro_new";
 $username = "imporsuit_system"; // Usuario por defecto de XAMPP

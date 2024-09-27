@@ -1,14 +1,5 @@
 <?php
-session_start();
 
-if (isset($_SESSION['id_plataforma'])) {
-} else {
-    if (isset($_COOKIE['id_plataforma'])) {
-        $_SESSION['id_plataforma'] = $_COOKIE['id_plataforma'];
-    } else {
-        header("Location: login.php");
-    }
-}
 include 'db.php';
 
 $nombre_tabla_singular = "Configuración";
