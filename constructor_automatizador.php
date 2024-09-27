@@ -353,6 +353,7 @@ if ($id_automatizador) {
             cargarTodasLasOpciones();
         });
         /* Fin llenar varible window.selectMultipleOptions */
+        
 
         window.response_template_facebook = <?php echo $response; ?>;
         console.log(window.response_template_facebook);
