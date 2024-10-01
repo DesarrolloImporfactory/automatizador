@@ -17,7 +17,9 @@ $id_configuracion = isset($data['id_configuracion']) ? (int)$data['id_configurac
 $value_blocks_type = isset($data['value_blocks_type']) ? $data['value_blocks_type'] : '';
 $user_id = isset($data['user_id']) ? (int)$data['user_id'] : 0;
 
-function getAutomatizador($conn, $id_configuracion, $value_blocks_type, $data) {
+function getAutomatizador($conn, $id_configuracion, $value_blocks_type, $data)
+{
+    $id_automatizador = $json_output = $productos = $categorias = $status = $novedad = $provincia = $ciudad = "";
     $stmt = $conn->prepare("
         SELECT a.id, a.json_output, d.productos, d.categorias, d.status, d.novedad, d.provincia, d.ciudad
         FROM automatizadores a
@@ -30,9 +32,9 @@ function getAutomatizador($conn, $id_configuracion, $value_blocks_type, $data) {
     $stmt->bind_param('is', $id_configuracion, $value_blocks_type);
     $stmt->execute();
     $stmt->bind_result($id_automatizador, $json_output, $productos, $categorias, $status, $novedad, $provincia, $ciudad);
-    
+
     $selected_automatizador = null;
-    
+
     while ($stmt->fetch()) {
         $productos_arr = json_decode($productos, true) ?? [];
         $categorias_arr = json_decode($categorias, true) ?? [];
@@ -59,7 +61,8 @@ function getAutomatizador($conn, $id_configuracion, $value_blocks_type, $data) {
     return $selected_automatizador;
 }
 
-function getBlocksInfo($conn, $id_automatizador, $block_id) {
+function getBlocksInfo($conn, $id_automatizador, $block_id)
+{
     // Extraer json_bloques de la tabla automatizadores
     $query_automatizador = "
         SELECT json_bloques
@@ -73,11 +76,11 @@ function getBlocksInfo($conn, $id_automatizador, $block_id) {
     $stmt_automatizador->bind_param('i', $id_automatizador);
     $stmt_automatizador->execute();
     $result_automatizador = $stmt_automatizador->get_result();
-    
+
     if ($result_automatizador->num_rows == 0) {
         throw new Exception("No se encontró el automatizador con el id especificado.");
     }
-    
+
     $automatizador = $result_automatizador->fetch_assoc();
     $json_bloques = $automatizador['json_bloques'];
     $stmt_automatizador->close();
@@ -95,8 +98,8 @@ function getBlocksInfo($conn, $id_automatizador, $block_id) {
             break;
         }
     }
-    
-    
+
+
     if ($block_data === null) {
         throw new Exception("No se encontró el bloque con el id especificado en el JSON.");
     }
@@ -138,7 +141,8 @@ function getBlocksInfo($conn, $id_automatizador, $block_id) {
     return null;
 }
 
-function getParentBlockInfo($conn, $id_automatizador, $parent_id) {
+function getParentBlockInfo($conn, $id_automatizador, $parent_id)
+{
     if ($parent_id == -1) {
         return ['parent_id' => -1, 'parent_table' => null];
     }
@@ -168,7 +172,8 @@ function getParentBlockInfo($conn, $id_automatizador, $parent_id) {
     return ['parent_id' => null, 'parent_table' => null];
 }
 
-function getChildBlocks($blockarr, $parent_id) {
+function getChildBlocks($blockarr, $parent_id)
+{
     $child_blocks = [];
     foreach ($blockarr as $block) {
         if ($block['parent'] == $parent_id) {
@@ -178,7 +183,8 @@ function getChildBlocks($blockarr, $parent_id) {
     return $child_blocks;
 }
 
-function sortBlocksByHierarchy($blocks, $blockarr) {
+function sortBlocksByHierarchy($blocks, $blockarr)
+{
     $sorted = [];
     $to_visit = [0]; // Comenzar con el bloque raíz
 
@@ -196,7 +202,8 @@ function sortBlocksByHierarchy($blocks, $blockarr) {
     return $sorted;
 }
 
-function removeConditionsAndDescendants(&$blocks) {
+function removeConditionsAndDescendants(&$blocks)
+{
     $blocks_map = [];
     foreach ($blocks as $block) {
         $blocks_map[$block['block_id']] = $block;
@@ -222,7 +229,8 @@ function removeConditionsAndDescendants(&$blocks) {
     return array_values($blocks_map);
 }
 
-function removeOrphanBlocks(&$blocks) {
+function removeOrphanBlocks(&$blocks)
+{
     $blocks_map = [];
     foreach ($blocks as $block) {
         $blocks_map[$block['block_id']] = $block;
@@ -231,21 +239,23 @@ function removeOrphanBlocks(&$blocks) {
     $valid_parents = array_column($blocks, 'block_id');
     $valid_parents[] = -1; // Allow root level block to exist without parent
 
-    $filtered_blocks = array_filter($blocks, function($block) use ($valid_parents) {
+    $filtered_blocks = array_filter($blocks, function ($block) use ($valid_parents) {
         return in_array($block['parent_block_id'], $valid_parents);
     });
 
     return array_values($filtered_blocks);
 }
 
-function replacePlaceholders($text, $placeholders) {
+function replacePlaceholders($text, $placeholders)
+{
     foreach ($placeholders as $key => $value) {
         $text = str_replace("{{{$key}}}", $value, $text);
     }
     return $text;
 }
 
-function getWhatsappMessageTemplate($config) {
+function getWhatsappMessageTemplate($config)
+{
     $url = 'https://graph.facebook.com/v20.0/' . $config['id_whatsapp'] . '/message_templates';
     $params = array(
         'access_token' => $config['token']
@@ -275,12 +285,14 @@ function getWhatsappMessageTemplate($config) {
 }
 
 // Function to extract placeholders from the message
-function extract_placeholders($mensaje) {
+function extract_placeholders($mensaje)
+{
     preg_match_all('/{{(.*?)}}/', $mensaje, $matches);
     return $matches[1];
 }
 
-function insertMessageDetails($conn, $id_automatizador, $uid_whatsapp, $mensaje, $json_mensaje) {
+function insertMessageDetails($conn, $id_automatizador, $uid_whatsapp, $mensaje, $json_mensaje)
+{
     $created_at = date('Y-m-d H:i:s');
     $updated_at = date('Y-m-d H:i:s');
 
@@ -307,10 +319,11 @@ function insertMessageDetails($conn, $id_automatizador, $uid_whatsapp, $mensaje,
     $stmt->close();
 }
 
-function sendWhatsappMessage($conn, $user_info, $block_sql_data, $config) {
+function sendWhatsappMessage($conn, $user_info, $block_sql_data, $config)
+{
     // Obtener la información del template de mensaje block_sql_data
     $id_whatsapp_message_template = $block_sql_data['id_whatsapp_message_template'];
-    
+
     $template_info = getWhatsappMessageTemplate($config);
     if (isset($template_info['error'])) {
         // Si hay un error, devolverlo
@@ -342,7 +355,8 @@ function sendWhatsappMessage($conn, $user_info, $block_sql_data, $config) {
 
     // Extract placeholders
     if (!function_exists('extract_placeholders')) {
-        function extract_placeholders($message) {
+        function extract_placeholders($message)
+        {
             preg_match_all('/{{(.*?)}}/', $message, $matches);
             return $matches[1];
         }
@@ -422,17 +436,20 @@ function sendWhatsappMessage($conn, $user_info, $block_sql_data, $config) {
     return $respuesta;
 }
 
-function sendEmail($user_info, $subject, $message) {
+function sendEmail($user_info, $subject, $message)
+{
     $subject = replacePlaceholders($subject, $user_info);
     $message = replacePlaceholders($message, $user_info);
     return "Correo enviado a {$user_info['email']} con el asunto '$subject' y el mensaje '$message'";
 }
 
-function changeOrderStatus($order_id, $new_status) {
+function changeOrderStatus($order_id, $new_status)
+{
     return "Estado de la orden $order_id cambiado a $new_status";
 }
 
-function getConfigurations($conn, $id_configuracion) {
+function getConfigurations($conn, $id_configuracion)
+{
     $stmt = $conn->prepare("
         SELECT * FROM configuraciones WHERE id = ?
     ");
@@ -444,21 +461,22 @@ function getConfigurations($conn, $id_configuracion) {
     $result = $stmt->get_result();
     $config = $result->fetch_assoc();
     $stmt->close();
-    
+
     return $config;
 }
 
-function insertInteractions($conn, $block_details, $id_automatizador, $user_id, $data) {
+function insertInteractions($conn, $block_details, $id_automatizador, $user_id, $data)
+{
     $user_id = $data['user_info']['celular'];
     $config = getConfigurations($conn, $data['id_configuracion']);
-    
+
     foreach ($block_details as $block) {
         $tipo_interaccion = $block['block_table'];
         $id_interaccion = $block['block_sql_id'];
         $json_interaccion = $block['block_sql_data'];
-        
+
         $respuesta_accion = '';
-        
+
         if ($block['block_sql_data']['tipo'] == 8) {
             $respuesta_accion = sendWhatsappMessage($conn, $data['user_info'], $block['block_sql_data'], $config);
         } elseif ($block['block_sql_data']['tipo'] == 7) {
@@ -466,14 +484,14 @@ function insertInteractions($conn, $block_details, $id_automatizador, $user_id, 
         } elseif ($block['block_sql_data']['tipo'] == 9) {
             $respuesta_accion = changeOrderStatus($data['user_info']['order_id'], 'new_status');
         }
-        
+
         $json_interaccion['respuesta_accion'] = $respuesta_accion;
         $json_interaccion['user_info'] = $data['user_info'];
-        
+
         $json_interaccion = json_encode($json_interaccion);
         $created_at = date('Y-m-d H:i:s');
         $updated_at = date('Y-m-d H:i:s');
-        
+
         $stmt = $conn->prepare("
             INSERT INTO interacciones_usuarios (id_automatizador, tipo_interaccion, id_interaccion, uid_usuario, json_interaccion, created_at, updated_at)
             VALUES (?, ?, ?, ?, ?, ?, ?)
@@ -539,4 +557,3 @@ try {
 } catch (mysqli_sql_exception $e) {
     echo json_encode(["status" => "error", "message" => $e->getMessage()]);
 }
-?>
