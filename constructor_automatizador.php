@@ -454,13 +454,12 @@ if ($id_automatizador) {
 
             </div>
             <script>
+                let formDataByBlock = [];
                 <?php if (!empty($json_bloques) && $json_bloques !== '[]') { ?>
                     // Pasar los datos de PHP a JavaScript y parsear a formato de array
-                    let formDataByBlock = JSON.parse('<?php echo addslashes($json_bloques); ?>');
-                <?php } else { ?>
-                    let formDataByBlock = [];
-                <?php } ?>
-
+                    formDataByBlock = JSON.parse('<?php echo addslashes($json_bloques); ?>');
+                <?php }
+                ?>
                 // Definir la función obtenerValoresFormulario
                 function obtenerValoresFormulario() {
                     const formData = {};
