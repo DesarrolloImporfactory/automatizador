@@ -112,7 +112,7 @@ $(document).ready(function() {
         };
 
         $.ajax({
-            url: 'https://alfabusi-cp63.wordpresstemporal.com/automatizador.importsuit.com/webhook_automatizador.php',
+            url: 'https://automatizador.imporsuitpro.com/webhook_automatizador.php',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
