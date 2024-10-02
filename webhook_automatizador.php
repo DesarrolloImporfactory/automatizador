@@ -43,7 +43,7 @@ function getAutomatizador($conn, $id_configuracion, $value_blocks_type, $data)
         $provincia_arr = json_decode($provincia, true) ?? [];
         $ciudad_arr = json_decode($ciudad, true) ?? [];
 
-        /* if (
+        if (
             (empty($productos_arr) || in_array("0", $productos_arr) || !empty(array_intersect($data['productos'], $productos_arr))) &&
             (empty($categorias_arr) || in_array("0", $categorias_arr) || !empty(array_intersect($data['categorias'], $categorias_arr))) &&
             (empty($status_arr) || in_array("0", $status_arr) || !empty(array_intersect($data['status'], $status_arr))) &&
@@ -53,8 +53,7 @@ function getAutomatizador($conn, $id_configuracion, $value_blocks_type, $data)
         ) {
             $selected_automatizador = ['id' => $id_automatizador, 'json_output' => $json_output];
             break;
-        } */
-        $selected_automatizador = ['id' => $id_automatizador, 'json_output' => $json_output];
+        }
     }
 
     $stmt->close();
