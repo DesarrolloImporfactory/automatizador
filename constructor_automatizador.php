@@ -140,6 +140,15 @@ if ($id_automatizador) {
             'icon' => 'fa fa-reply',
             'value' => 10,
             'name_tag' => null
+        ],
+        [
+            'id' => 11,
+            'category' => 'Acciones',
+            'name' => 'ChatGpt',
+            'description' => 'Envía un mensaje de chatGpt',
+            'icon' => 'fa fa-comment',
+            'value' => 11,
+            'name_tag' => null
         ]
     ];
 
