@@ -325,7 +325,7 @@ if ($id_automatizador) {
                     // Aquí asumimos que 'response' contiene un array de productos
                     window.selectMultipleOptions.Productos = response.map(function(producto) {
                         return {
-                            id: producto.id_producto_tienda,
+                            id: producto.id_inventario,
                             text: producto.nombre_producto_tienda
                         };
                     });

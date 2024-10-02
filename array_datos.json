@@ -1,91 +1,35 @@
 {
-    "id_configuracion": 1,
-    "id_automatizador": 1,
-    "block_details": [
-        {
-            "block_id": 0,
-            "block_table": "disparadores",
-            "block_sql_id": 1,
-            "block_sql_data": {
-                "id": 1,
-                "block_id": 0,
-                "table_name": "disparadores",
-                "id_automatizador": 1,
-                "tipo": "1",
-                "productos": "[\"0\"]",
-                "categorias": null,
-                "status": null,
-                "novedad": null,
-                "provincia": null,
-                "ciudad": null,
-                "created_at": "2024-08-06 22:18:17",
-                "updated_at": "2024-10-01 20:48:28",
-                "id_condicion": null,
-                "id_disparador": null,
-                "id_accion": null,
-                "id_whatsapp_message_template": null,
-                "asunto": null,
-                "mensaje": null,
-                "opciones": null,
-                "tiempo_envio": null,
-                "unidad_envio": null,
-                "tiempo_reenvio": null,
-                "unidad_reenvio": null,
-                "reenvios": null,
-                "cambiar_status": null,
-                "texto": null,
-                "id_block": "0",
-                "productos[]": [
-                    "0"
-                ],
-                "": ""
-            },
-            "parent_block_id": -1,
-            "parent_block_table": null,
-            "parent_block_sql_id": -1,
-            "child_blocks": [
-                1
-            ]
-        },
-        {
-            "block_id": 1,
-            "block_table": "acciones",
-            "block_sql_id": 1,
-            "block_sql_data": {
-                "id": 1,
-                "block_id": 1,
-                "table_name": "acciones",
-                "id_automatizador": 1,
-                "tipo": "8",
-                "productos": null,
-                "categorias": null,
-                "status": null,
-                "novedad": null,
-                "provincia": null,
-                "ciudad": null,
-                "created_at": "2024-08-06 22:18:17",
-                "updated_at": "2024-10-01 20:48:28",
-                "id_condicion": null,
-                "id_disparador": "1",
-                "id_accion": null,
-                "id_whatsapp_message_template": "832078161235990",
-                "asunto": null,
-                "mensaje": "Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.",
-                "opciones": null,
-                "tiempo_envio": null,
-                "unidad_envio": null,
-                "tiempo_reenvio": null,
-                "unidad_reenvio": null,
-                "reenvios": null,
-                "cambiar_status": null,
-                "texto": null,
-                "id_block": "1",
-                "": ""
-            },
-            "parent_block_id": 0,
-            "parent_block_table": "disparadores",
-            "parent_block_sql_id": 1,
-            "child_blocks": []
-        }
-    ]
+    "id_configuracion": "10",
+    "value_blocks_type": "2",
+    "user_id": "2",
+    "order_id": "5",
+    "nombre": "Adrián Recalde",
+    "direccion": "La Floresta y Villaroel",
+    "email": "alfacodeplanet@gmail.com",
+    "celular": "593987267904",
+    "productos": [
+        ""
+    ],
+    "categorias": [
+        "67"
+    ],
+    "status": [
+        ""
+    ],
+    "novedad": [
+        ""
+    ],
+    "provincia": [
+        ""
+    ],
+    "ciudad": [
+        ""
+    ],
+    "user_info": {
+        "nombre": "Adrián Recalde",
+        "direccion": "La Floresta y Villaroel",
+        "email": "alfacodeplanet@gmail.com",
+        "celular": "593987267904",
+        "order_id": "5"
+    }
 }
