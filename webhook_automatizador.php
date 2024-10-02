@@ -297,7 +297,7 @@ function insertMessageDetails($conn, $id_automatizador, $uid_whatsapp, $mensaje,
     $updated_at = date('Y-m-d H:i:s');
 
     $stmt = $conn->prepare("
-        INSERT INTO mensajes_clientes (id_automatizador, uid_whatsapp, mensaje, rol, json_mensaje, created_at, updated_at)
+        INSERT INTO mensajes_usuarios (id_automatizador, uid_whatsapp, mensaje, rol, json_mensaje, created_at, updated_at)
         VALUES (?, ?, ?, ?, ?, ?, ?)
     ");
     if ($stmt === false) {
