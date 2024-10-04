@@ -149,6 +149,15 @@ if ($id_automatizador) {
             'icon' => 'fa fa-comment',
             'value' => 11,
             'name_tag' => null
+        ],
+        [
+            'id' => 12,
+            'category' => 'Acciones',
+            'name' => 'Crear guia',
+            'description' => 'Accion de creacion de guias',
+            'icon' => 'fa-solid fa-truck-fast',
+            'value' => 12,
+            'name_tag' => null
         ]
     ];
 
