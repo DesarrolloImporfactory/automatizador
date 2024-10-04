@@ -154,7 +154,7 @@ if ($id_automatizador) {
             'id' => 12,
             'category' => 'Acciones',
             'name' => 'Crear guia',
-            'description' => 'Accion de creacion de guias',
+            'description' => 'Acción de creación de guias',
             'icon' => 'fa-solid fa-truck-fast',
             'value' => 12,
             'name_tag' => null
