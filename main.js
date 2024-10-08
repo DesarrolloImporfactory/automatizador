@@ -354,6 +354,7 @@ document.addEventListener("DOMContentLoaded", function(){
     
         const outputObj = {
             html: generatedHTML.html,
+            /* html: inputObj.html, */
             blockarr: inputObj.blockarr,
             blocks: inputObj.blocks
         };
