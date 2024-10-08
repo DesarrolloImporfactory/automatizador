@@ -60,7 +60,7 @@ if ($id_automatizador) {
             'value' => 1,
             'name_tag' => 'productos'
         ],
-        /* [
+        [
             'id' => 2,
             'category' => 'Disparadores',
             'name' => 'Categoria comprada',
@@ -113,7 +113,7 @@ if ($id_automatizador) {
             'icon' => 'fa fa-envelope',
             'value' => 7,
             'name_tag' => null
-        ], */
+        ],
         [
             'id' => 8,
             'category' => 'Acciones',
@@ -123,7 +123,7 @@ if ($id_automatizador) {
             'value' => 8,
             'name_tag' => null
         ],
-        /* [
+        [
             'id' => 9,
             'category' => 'Acciones',
             'name' => 'Cambiar status de la orden',
@@ -131,7 +131,7 @@ if ($id_automatizador) {
             'icon' => 'fa fa-exchange-alt',
             'value' => 9,
             'name_tag' => null
-        ], */
+        ],
         [
             'id' => 10,
             'category' => 'Condiciones',
@@ -140,7 +140,7 @@ if ($id_automatizador) {
             'icon' => 'fa fa-reply',
             'value' => 10,
             'name_tag' => null
-        ]/* ,
+        ],
         [
             'id' => 11,
             'category' => 'Acciones',
@@ -158,7 +158,7 @@ if ($id_automatizador) {
             'icon' => 'fa-solid fa-truck-fast',
             'value' => 12,
             'name_tag' => null
-        ] */
+        ]
     ];
 
     // Consultar la API de Facebook
