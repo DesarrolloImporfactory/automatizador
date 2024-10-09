@@ -124,15 +124,6 @@ if ($id_automatizador) {
             'name_tag' => null
         ],
         [
-            'id' => 9,
-            'category' => 'Acciones',
-            'name' => 'Cambiar status de la orden',
-            'description' => 'Cambia el status de una orden',
-            'icon' => 'fa fa-exchange-alt',
-            'value' => 9,
-            'name_tag' => null
-        ],
-        [
             'id' => 10,
             'category' => 'Condiciones',
             'name' => 'Decisión(Respuesta Rápida)',
@@ -288,15 +279,15 @@ if ($id_automatizador) {
                 },
                 {
                     id: "1",
-                    text: "Estado 1"
+                    text: "Entregados"
                 },
                 {
                     id: "2",
-                    text: "Estado 2"
+                    text: "Novedad"
                 },
                 {
                     id: "3",
-                    text: "Estado 3"
+                    text: "Devolucion"
                 }
             ],
             "Novedad": [{

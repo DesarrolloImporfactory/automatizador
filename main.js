@@ -712,20 +712,6 @@ document.addEventListener("DOMContentLoaded", function(){
                     }
                     */
 
-                    // Cambiar Estatus A
-                    if (valorTipoID == "9") {
-                        var nameInput = "estatus_a[]";
-                        const selectedOptions = formDataByBlock[valorBlockID] && formDataByBlock[valorBlockID][nameInput];
-                        codigoHTML += `
-                            <div class="form-group col-12 p-2">
-                                <label for="estatus_a">Status</label>
-                                <select multiple class="form-control select2" id="estatus_a" name="${nameInput}">
-                                    ${generateSelectOptions('Status', selectedOptions || [])}
-                                </select>
-                            </div>
-                        `;
-                    }
-
                     // Texto a Recibir - Condicion
                     if (valorTipoID == "10") {
                         codigoHTML += `
