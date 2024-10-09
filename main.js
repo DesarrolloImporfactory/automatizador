@@ -457,7 +457,7 @@ document.addEventListener("DOMContentLoaded", function(){
                     `;
                     
                     // Producto
-                    if (valorTipoID == "1" || valorTipoID == "3") {
+                    if (valorTipoID == "1") {
                         var nameInput = "productos[]";
                         const selectedOptions = formDataByBlock[valorBlockID] && formDataByBlock[valorBlockID][nameInput];
                         codigoHTML += `
