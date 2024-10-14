@@ -722,6 +722,16 @@ document.addEventListener("DOMContentLoaded", function(){
                         `;
                     }
 
+                    /* accion chatGpt */
+                    if (valorTipoID == "11") {
+                        codigoHTML += `
+                            <div class="form-group col-12 p-2">
+                                <label for="token_chatGpt">Token ChatGpt</label>
+                                <textarea class="form-control" id="token_chatGpt" name="token_chatGpt" rows="3" placeholder="Token">${formDataByBlock[valorBlockID]?.token_chatGpt || ''}</textarea>
+                            </div>
+                        `;
+                    }
+
                     codigoHTML += `
                         <button type="button" class="btn btn-primary pt-2 w-100" onclick="obtenerValoresFormulario()">Guardar</button>
                     </form>
