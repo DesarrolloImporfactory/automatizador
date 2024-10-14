@@ -726,7 +726,7 @@ document.addEventListener("DOMContentLoaded", function(){
                     if (valorTipoID == "11") {
                         codigoHTML += `
                             <div class="form-group col-12 p-2">
-                                <label for="mensaje">Token ChatGpt</label>
+                                <label for="token_chatGpt">Token ChatGpt</label>
                                 <textarea class="form-control" id="token_chatGpt" name="token_chatGpt" rows="3" placeholder="Token">${formDataByBlock[valorBlockID]?.token_chatGpt || ''}</textarea>
                             </div>
                         `;
