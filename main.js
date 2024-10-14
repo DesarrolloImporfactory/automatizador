@@ -620,15 +620,6 @@ document.addEventListener("DOMContentLoaded", function(){
                         `;
                     }
 
-                    if (valorTipoID == "11") {
-                        codigoHTML += `
-                            <div class="form-group col-12 p-2">
-                                <label for="mensaje">Token ChatGpt</label>
-                                <textarea class="form-control" id="token_chatGpt" name="token_chatGpt" rows="3" placeholder="Token">${formDataByBlock[valorBlockID]?.token_chatGpt || ''}</textarea>
-                            </div>
-                        `;
-                    }
-
                     // Agregar este script después de agregar todo el contenido HTML en la página
                     setTimeout(function() {
                         // Asunto
@@ -727,6 +718,16 @@ document.addEventListener("DOMContentLoaded", function(){
                             <div class="form-group col-12 p-2">
                                 <label for="texto_recibir">Condicion de Texto a Recibir</label>
                                 <input type="text" class="form-control" id="texto_recibir" name="texto_recibir" placeholder="Condicion de Texto a Recibir" value="${formDataByBlock[valorBlockID]?.texto_recibir || ''}">
+                            </div>
+                        `;
+                    }
+
+                    /* accion chatGpt */
+                    if (valorTipoID == "11") {
+                        codigoHTML += `
+                            <div class="form-group col-12 p-2">
+                                <label for="mensaje">Token ChatGpt</label>
+                                <textarea class="form-control" id="token_chatGpt" name="token_chatGpt" rows="3" placeholder="Token">${formDataByBlock[valorBlockID]?.token_chatGpt || ''}</textarea>
                             </div>
                         `;
                     }
