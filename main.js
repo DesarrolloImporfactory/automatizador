@@ -554,7 +554,7 @@ document.addEventListener("DOMContentLoaded", function(){
                                     <option value="{{celular}}">{{celular}}</option>
                                     <option value="{{order_id}}">{{order_id}}</option>
                                     <option value="{{contenido}}">{{contenido}}</option>
-                                    <option value="{{Costo}}">{{Costo}}</option>
+                                    <option value="{{costo}}">{{costo}}</option>
                                     <option value="{{ciudad}}">{{ciudad}}</option>
                                 </select>
                             </div>
@@ -592,7 +592,7 @@ document.addEventListener("DOMContentLoaded", function(){
                                     <option value="{{celular}}">{{celular}}</option>
                                     <option value="{{order_id}}">{{order_id}}</option>
                                     <option value="{{contenido}}">{{contenido}}</option>
-                                    <option value="{{Costo}}">{{Costo}}</option>
+                                    <option value="{{costo}}">{{costo}}</option>
                                     <option value="{{ciudad}}">{{ciudad}}</option>
                                 </select>
                             </div>
@@ -617,7 +617,7 @@ document.addEventListener("DOMContentLoaded", function(){
                                     <option value="{{celular}}">{{celular}}</option>
                                     <option value="{{order_id}}">{{order_id}}</option>
                                     <option value="{{contenido}}">{{contenido}}</option>
-                                    <option value="{{Costo}}">{{Costo}}</option>
+                                    <option value="{{costo}}">{{costo}}</option>
                                     <option value="{{ciudad}}">{{ciudad}}</option>
                                 </select>
                             </div>
