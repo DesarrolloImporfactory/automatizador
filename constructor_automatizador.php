@@ -149,7 +149,7 @@ if ($id_automatizador) {
             'icon' => 'fa-solid fa-truck-fast',
             'value' => 12,
             'name_tag' => null
-        ]
+        ],
     ];
 
     // Consultar la API de Facebook
