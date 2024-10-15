@@ -553,6 +553,9 @@ document.addEventListener("DOMContentLoaded", function(){
                                     <option value="{{email}}">{{email}}</option>
                                     <option value="{{celular}}">{{celular}}</option>
                                     <option value="{{order_id}}">{{order_id}}</option>
+                                    <option value="{{contenido}}">{{contenido}}</option>
+                                    <option value="{{Costo}}">{{Costo}}</option>
+                                    <option value="{{ciudad}}">{{ciudad}}</option>
                                 </select>
                             </div>
                             <div class="form-group col-12 p-2">
