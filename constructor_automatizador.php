@@ -314,8 +314,20 @@ if ($id_automatizador) {
 
         // Función para actualizar la sección "Productos" con los datos de la API
         function cargarProductos() {
+            // Dividir por "."
+            var url = window.location.href;
+            var partes = url.split('.');
+            var subdominio = partes[1];
+
+            var url_api = "";
+            if (subdominio == "merkapro") {
+                url_api = "https://app.merkapro.ec/";
+            } else if (subdominio == "merkapro") {
+                url_api = "https://new.imporsuitpro.com/";
+            }
+
             $.ajax({
-                url: 'https://new.imporsuitpro.com/productos/obtener_productos_tienda',
+                url: url_api + 'productos/obtener_productos_tienda',
                 method: 'GET',
                 dataType: "json",
                 xhrFields: {
@@ -339,8 +351,20 @@ if ($id_automatizador) {
 
         // Función para actualizar la sección "Categorias" con los datos de la API
         function cargarCategorias() {
+            // Dividir por "."
+            var url = window.location.href;
+            var partes = url.split('.');
+            var subdominio = partes[1];
+
+            var url_api = "";
+            if (subdominio == "merkapro") {
+                url_api = "https://app.merkapro.ec/";
+            } else if (subdominio == "merkapro") {
+                url_api = "https://new.imporsuitpro.com/";
+            }
+
             $.ajax({
-                url: 'https://new.imporsuitpro.com/productos/cargar_categorias',
+                url: url_api + 'productos/cargar_categorias',
                 method: 'GET',
                 dataType: "json",
                 xhrFields: {
