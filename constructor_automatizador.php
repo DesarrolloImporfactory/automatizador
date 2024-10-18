@@ -322,7 +322,7 @@ if ($id_automatizador) {
             var url_api = "";
             if (subdominio == "merkapro") {
                 url_api = "https://app.merkapro.ec/";
-            } else if (subdominio == "merkapro") {
+            } else if (subdominio == "imporsuitpro") {
                 url_api = "https://new.imporsuitpro.com/";
             }
 
@@ -359,7 +359,7 @@ if ($id_automatizador) {
             var url_api = "";
             if (subdominio == "merkapro") {
                 url_api = "https://app.merkapro.ec/";
-            } else if (subdominio == "imporsuit") {
+            } else if (subdominio == "imporsuitpro") {
                 url_api = "https://new.imporsuitpro.com/";
             }
 
