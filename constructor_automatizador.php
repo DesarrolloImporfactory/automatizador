@@ -327,7 +327,7 @@ if ($id_automatizador) {
             }
 
             $.ajax({
-                url: url_api + 'productos/obtener_productos_tienda',
+                url: url_api + 'productos/obtener_productos_tienda_automatizador',
                 method: 'GET',
                 dataType: "json",
                 xhrFields: {
