@@ -298,6 +298,14 @@ if ($id_automatizador) {
                 {
                     id: "3",
                     text: "Devolucion"
+                },
+                {
+                    id: "4",
+                    text: "generado"
+                },
+                {
+                    id: "5",
+                    text: "Zona de entrega"
                 }
             ],
             "Novedad": [{
