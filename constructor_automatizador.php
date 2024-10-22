@@ -126,7 +126,7 @@ if ($id_automatizador) {
         [
             'id' => 9,
             'category' => 'Acciones',
-            'name' => 'Enviar template local',
+            'name' => 'Enviar whatsapp interno',
             'description' => 'Acción de enviar mensajes con template local del sistema',
             'icon' => 'fa-solid fa-language',
             'value' => 9,
