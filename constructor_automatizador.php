@@ -282,6 +282,7 @@ if ($id_automatizador) {
         window.selectMultipleOptions = {
             "Productos": [],
             "Categorias": [],
+            "Templates": [],
             "Status": [{
                     id: "0",
                     text: "Todos los Estados"
@@ -394,10 +395,46 @@ if ($id_automatizador) {
             });
         }
 
+        function cargarTemplates() {
+            // Dividir por "."
+            var url = window.location.href;
+            var partes = url.split('.');
+            var subdominio = partes[1];
+
+            var url_api = "";
+            if (subdominio == "merkapro") {
+                url_api = "https://app.merkapro.ec/";
+            } else if (subdominio == "imporsuitpro") {
+                url_api = "https://new.imporsuitpro.com/";
+            }
+
+            $.ajax({
+                url: url_api + 'productos/cargar_templates',
+                method: 'GET',
+                dataType: "json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function(response) {
+                    window.selectMultipleOptions.Templates = response.map(function(template) {
+                        return {
+                            id: template.id_template,
+                            text: template.atajo
+                        };
+                    });
+                    console.log('Templates cargadas:', window.selectMultipleOptions.Templates);
+                },
+                error: function(error) {
+                    console.error('Error al cargar categorías:', error);
+                }
+            });
+        }
+
         // Función para cargar todas las opciones
         function cargarTodasLasOpciones() {
             cargarProductos(); // Carga los productos
             cargarCategorias(); // Carga las categorías
+            cargarTemplates(); // Carga las templates
             // Añade más funciones para cargar el resto de las secciones (Status, Novedad, Provincia, Ciudad) si es necesario
         }
 
