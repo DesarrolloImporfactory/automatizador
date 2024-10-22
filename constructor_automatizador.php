@@ -124,6 +124,15 @@ if ($id_automatizador) {
             'name_tag' => null
         ],
         [
+            'id' => 9,
+            'category' => 'Acciones',
+            'name' => 'Enviar template local',
+            'description' => 'Acción de enviar mensajes con template local del sistema',
+            'icon' => 'fa-solid fa-language',
+            'value' => 9,
+            'name_tag' => null
+        ],
+        [
             'id' => 10,
             'category' => 'Condiciones',
             'name' => 'Decisión(Respuesta Rápida)',
@@ -144,19 +153,10 @@ if ($id_automatizador) {
         [
             'id' => 12,
             'category' => 'Acciones',
-            'name' => 'Enviar template local',
-            'description' => 'Acción de enviar mensajes con template local del sistema',
-            'icon' => 'fa-solid fa-language',
-            'value' => 12,
-            'name_tag' => null
-        ],
-        [
-            'id' => 13,
-            'category' => 'Acciones',
             'name' => 'Crear guia',
             'description' => 'Acción de creación de guias',
             'icon' => 'fa-solid fa-truck-fast',
-            'value' => 13,
+            'value' => 12,
             'name_tag' => null
         ]
     ];
