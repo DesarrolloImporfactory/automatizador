@@ -826,7 +826,7 @@ document.addEventListener("DOMContentLoaded", function () {
           codigoHTML += `
                                           <div class="form-group col-12 p-2">
                                               <label for="templates_a">Templates</label>
-                                              <select multiple class="form-control select2" id="templates_a" name="${nameInput}">
+                                              <select class="form-control select2" id="templates_a" name="${nameInput}">
                                                   ${generateSelectOptions(
                                                     "Templates",
                                                     selectedOptions || []
