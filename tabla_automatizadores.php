@@ -101,7 +101,12 @@ if ($result->num_rows > 0) {
             $(document).ready(function() {
 
                 $('#btnBack').click(function() {
+                    // Dividir por "."
+                    var url = window.location.href;
+                    var partes = url.split('.');
+                    var subdominio = partes[1];
                     var url_api = "";
+
                     if (subdominio == "merkapro") {
                         url_api = "https://app.merkapro.ec/";
                     } else if (subdominio == "imporsuitpro") {
