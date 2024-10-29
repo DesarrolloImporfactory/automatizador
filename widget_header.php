@@ -85,7 +85,7 @@
     </nav>
 
     <!-- Sidebar -->
-    <div class="d-flex">
+    <!-- <div class="d-flex">
         <div class="sidebar bg-light p-3 sidebar-collapsed" id="sidebar">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4>Menú</h4>
@@ -100,7 +100,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
 
     <script>
         document.getElementById('sidebarToggle').addEventListener('click', function() {
