@@ -99,14 +99,15 @@ if ($result->num_rows > 0) {
         <button id="btnBack" class="btn btn-danger mb-3"><i class="fas fa-arrow-left"></i> Regresar</button>
         <script>
             $(document).ready(function() {
-                var url_api = "";
-                if (subdominio == "merkapro") {
-                    url_api = "https://app.merkapro.ec/";
-                } else if (subdominio == "imporsuitpro") {
-                    url_api = "https://new.imporsuitpro.com/";
-                }
 
                 $('#btnBack').click(function() {
+                    var url_api = "";
+                    if (subdominio == "merkapro") {
+                        url_api = "https://app.merkapro.ec/";
+                    } else if (subdominio == "imporsuitpro") {
+                        url_api = "https://new.imporsuitpro.com/";
+                    }
+
                     window.location.href = url_api;
                 });
             });
