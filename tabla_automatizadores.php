@@ -377,10 +377,16 @@ if ($result->num_rows > 0) {
                         }
                     });
                     //tabla_interacciones.php
-                    html += `<td>
+                    /* html += `<td>
                             <a class="btn btn-info" href="constructor_automatizador.php?id_automatizador=${automatizador.id}"><i class="fas fa-paint-brush"></i> Construir</a>
                             <a class="btn btn-primary" href="tabla_interacciones.php?id_automatizador=${automatizador.id}"><i class="fa fa-tachometer"></i> Interacciones</a> 
                             <button class="btn btn-success btnView" data-id="${automatizador.id}"><i class="fas fa-eye"></i> Ver</button> 
+                            <button class="btn btn-warning btnEdit" data-id="${automatizador.id}"><i class="fas fa-edit"></i> Editar</button> 
+                            <button class="btn btn-danger btnDelete" data-id="${automatizador.id}"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                         </td>`; */
+
+                    html += `<td>
+                            <a class="btn btn-info" href="constructor_automatizador.php?id_automatizador=${automatizador.id}"><i class="fas fa-paint-brush"></i> Construir</a>
                             <button class="btn btn-warning btnEdit" data-id="${automatizador.id}"><i class="fas fa-edit"></i> Editar</button> 
                             <button class="btn btn-danger btnDelete" data-id="${automatizador.id}"><i class="fas fa-trash-alt"></i> Eliminar</button>
                          </td>`;
