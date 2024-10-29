@@ -525,8 +525,7 @@ if ($id_automatizador) {
         <div id="footer">
             <a href="https://alfaingenius.com" target="_blank">
                 <p>Hecho por</p>
-                <p>by</p>
-                AlfaIngenius
+                imporsuitpro
             </a>
         </div>
     </div>
