@@ -76,7 +76,7 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="btn btn-primary toggle-btn" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <!-- <button class="btn btn-primary toggle-btn" id="sidebarToggle"><i class="fas fa-bars"></i></button> -->
         <a class="navbar-brand ml-2" href="#">Automatizador ImportSuit</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
