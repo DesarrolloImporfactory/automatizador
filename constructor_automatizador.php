@@ -162,9 +162,9 @@ if ($id_automatizador) {
         [
             'id' => 13,
             'category' => 'Condiciones',
-            'name' => 'Crear guia',
-            'description' => 'Acción de creación de guias',
-            'icon' => 'fa-solid fa-truck-fast',
+            'name' => 'Esperar',
+            'description' => 'Acción espera a respuesta de mensajes',
+            'icon' => 'fa-solid fa-stopwatch',
             'value' => 13,
             'name_tag' => null
         ]
