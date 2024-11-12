@@ -158,6 +158,15 @@ if ($id_automatizador) {
             'icon' => 'fa-solid fa-truck-fast',
             'value' => 12,
             'name_tag' => null
+        ],
+        [
+            'id' => 13,
+            'category' => 'Condiciones',
+            'name' => 'Crear guia',
+            'description' => 'Acción de creación de guias',
+            'icon' => 'fa-solid fa-truck-fast',
+            'value' => 13,
+            'name_tag' => null
         ]
     ];
 
@@ -283,6 +292,31 @@ if ($id_automatizador) {
             "Productos": [],
             "Categorias": [],
             "Templates": [],
+            "Wait": [{
+                    id: "0",
+                    text: "1 Hora"
+                },
+                {
+                    id: "1",
+                    text: "2 Horas"
+                },
+                {
+                    id: "2",
+                    text: "3 Horas"
+                },
+                {
+                    id: "3",
+                    text: "5 Horas"
+                },
+                {
+                    id: "4",
+                    text: "12 Horas"
+                },
+                {
+                    id: "5",
+                    text: "24 Horas"
+                }
+            ],
             "Status": [{
                     id: "0",
                     text: "Todos los Estados"
