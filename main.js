@@ -849,6 +849,25 @@ document.addEventListener("DOMContentLoaded", function () {
                         `;
         }
 
+        // Wait
+        if (valorTipoID == "13") {
+          var nameInput = "wait[]";
+          const selectedOptions =
+            formDataByBlock[valorBlockID] &&
+            formDataByBlock[valorBlockID][nameInput];
+          codigoHTML += `
+                            <div class="form-group col-12 p-2">
+                                <label for="wait">Esperar</label>
+                                <select class="form-control select2" id="wait" name="${nameInput}">
+                                    ${generateSelectOptions(
+                                      "Wait",
+                                      selectedOptions || []
+                                    )}
+                                </select>
+                            </div>
+                        `;
+        }
+
         /* accion chatGpt */
         /* if (valorTipoID == "11") {
                         codigoHTML += `

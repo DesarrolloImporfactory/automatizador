@@ -158,6 +158,15 @@ if ($id_automatizador) {
             'icon' => 'fa-solid fa-truck-fast',
             'value' => 12,
             'name_tag' => null
+        ],
+        [
+            'id' => 13,
+            'category' => 'Condiciones',
+            'name' => 'Esperar',
+            'description' => 'Acción espera a respuesta de mensajes',
+            'icon' => 'fa-solid fa-stopwatch',
+            'value' => 13,
+            'name_tag' => null
         ]
     ];
 
@@ -323,6 +332,31 @@ if ($id_automatizador) {
                 {
                     id: "3",
                     text: "Novedad 3"
+                }
+            ],
+            "Wait": [{
+                    id: "0",
+                    text: "1 hora"
+                },
+                {
+                    id: "1",
+                    text: "2 horas"
+                },
+                {
+                    id: "2",
+                    text: "3 horas"
+                },
+                {
+                    id: "3",
+                    text: "5 horas"
+                },
+                {
+                    id: "4",
+                    text: "12 horas"
+                },
+                {
+                    id: "5",
+                    text: "24 horas"
                 }
             ],
             "Provincia": [],
