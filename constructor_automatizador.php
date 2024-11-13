@@ -167,7 +167,7 @@ if ($id_automatizador) {
             'icon' => 'fa-solid fa-stopwatch',
             'value' => 13,
             'name_tag' => null
-        ]
+        ],
     ];
 
     // Consultar la API de Facebook
