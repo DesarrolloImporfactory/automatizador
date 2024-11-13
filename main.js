@@ -868,6 +868,25 @@ document.addEventListener("DOMContentLoaded", function () {
                         `;
         }
 
+        // Condicion Si o No
+        if (valorTipoID == "14") {
+          var nameInput = "sino_condicion[]";
+          const selectedOptions =
+            formDataByBlock[valorBlockID] &&
+            formDataByBlock[valorBlockID][nameInput];
+          codigoHTML += `
+                            <div class="form-group col-12 p-2">
+                                <label for="sino_condicion">Condicion Si o No</label>
+                                <select class="form-control select2" id="sino_condicion" name="${nameInput}">
+                                    ${generateSelectOptions(
+                                      "Sino_condicion",
+                                      selectedOptions || []
+                                    )}
+                                </select>
+                            </div>
+                        `;
+        }
+
         /* accion chatGpt */
         /* if (valorTipoID == "11") {
                         codigoHTML += `

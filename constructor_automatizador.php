@@ -167,6 +167,15 @@ if ($id_automatizador) {
             'icon' => 'fa-solid fa-stopwatch',
             'value' => 13,
             'name_tag' => null
+        ],
+        [
+            'id' => 14,
+            'category' => 'Condiciones',
+            'name' => 'Condicion Si o No',
+            'description' => 'Condicion para acciones de Si o No',
+            'icon' => 'fa-solid fa-network-wired',
+            'value' => 14,
+            'name_tag' => null
         ]
     ];
 
@@ -357,6 +366,15 @@ if ($id_automatizador) {
                 {
                     id: "5",
                     text: "24 horas"
+                }
+            ],
+            "Sino_condicion": [{
+                    id: "1",
+                    text: "Si"
+                },
+                {
+                    id: "0",
+                    text: "No"
                 }
             ],
             "Provincia": [],
