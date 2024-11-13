@@ -98,6 +98,7 @@ foreach ($resultado_automatizador as $resultado) {
     $reenvios = isset($info['veces_reenvio']) ? $info['veces_reenvio'] : null;
     $cambiar_status = isset($info['status_a[]']) ? json_encode($info['status_a[]']) : null;
     $texto = isset($info['texto_recibir']) ? $info['texto_recibir'] : null;
+    $wait = isset($info['wait[]']) ? json_encode($info['wait[]']) : null;
 
     // Procesar según el tipo
     if ($tipo <= 6) { // Disparadores
@@ -219,6 +220,40 @@ foreach ($resultado_automatizador as $resultado) {
                 $id_automatizador,
                 $block_id,
                 $texto
+            ]);
+            $parent_map[$resultado['id']] = ['id' => $id_condicion, 'type' => 'condicion'];
+        }
+    }
+    elseif ($tipo == 10) { // Condiciones
+        $id_accion = isset($parent_map[$parent]) && $parent_map[$parent]['type'] == 'accion' ? $parent_map[$parent]['id'] : null;
+        $id_disparador = isset($parent_map[$parent]) && $parent_map[$parent]['type'] == 'disparador' ? $parent_map[$parent]['id'] : null;
+
+        $existing_id = checkExistingBlockId($conn, 'condiciones', $id_automatizador, $block_id);
+        if ($existing_id) {
+            // Actualizar el registro existente
+            $update_condiciones_query = "
+                UPDATE condiciones
+                SET texto = ?, updated_at = NOW()
+                WHERE id = ?
+            ";
+            executeQuery($conn, $update_condiciones_query, [
+                'si',
+                $wait,
+                $existing_id
+            ]);
+        } else {
+            // Insertar nuevo registro
+            $insert_condiciones_query = "
+                INSERT INTO condiciones (id_accion, id_disparador, id_automatizador, block_id, texto, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, NOW(), NOW())
+            ";
+            $id_condicion = executeQuery($conn, $insert_condiciones_query, [
+                'iiiss',
+                $id_accion,
+                $id_disparador,
+                $id_automatizador,
+                $block_id,
+                $wait
             ]);
             $parent_map[$resultado['id']] = ['id' => $id_condicion, 'type' => 'condicion'];
         }
