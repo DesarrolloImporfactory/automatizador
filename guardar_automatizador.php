@@ -224,7 +224,7 @@ foreach ($resultado_automatizador as $resultado) {
             $parent_map[$resultado['id']] = ['id' => $id_condicion, 'type' => 'condicion'];
         }
     }
-    elseif ($tipo == 10) { // Condiciones
+    elseif ($tipo == 13) { // Condiciones
         $id_accion = isset($parent_map[$parent]) && $parent_map[$parent]['type'] == 'accion' ? $parent_map[$parent]['id'] : null;
         $id_disparador = isset($parent_map[$parent]) && $parent_map[$parent]['type'] == 'disparador' ? $parent_map[$parent]['id'] : null;
 
