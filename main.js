@@ -836,25 +836,6 @@ document.addEventListener("DOMContentLoaded", function () {
                                       `;
         }
 
-        // Wait - Condicion
-        if (valorTipoID == "13") {
-          var nameInput = "wait[]";
-          const selectedOptions =
-            formDataByBlock[valorBlockID] &&
-            formDataByBlock[valorBlockID][nameInput];
-          codigoHTML += `
-                                          <div class="form-group col-12 p-2">
-                                              <label for="wait">Esperar</label>
-                                              <select class="form-control select2" id="wait" name="${nameInput}">
-                                                  ${generateSelectOptions(
-                                                    "Wait",
-                                                    selectedOptions || []
-                                                  )}
-                                              </select>
-                                          </div>
-                                      `;
-        }
-
         // Texto a Recibir - Condicion
         if (valorTipoID == "10") {
           codigoHTML += `
