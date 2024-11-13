@@ -18,7 +18,8 @@ $info_bloques = json_encode($data['info_bloques']);
 $resultado_automatizador = $data['resultado_automatizador'];
 
 // Función para ejecutar una consulta SQL con manejo de errores y log
-function executeQuery($conn, $query, $params) {
+function executeQuery($conn, $query, $params)
+{
     $stmt = $conn->prepare($query);
     if ($stmt) {
         $stmt->bind_param(...$params);
@@ -54,7 +55,8 @@ executeQuery($conn, $update_automatizadores_query, [
 $parent_map = [];
 
 // Función para verificar si un block_id ya existe y retornar su id
-function checkExistingBlockId($conn, $table, $id_automatizador, $block_id) {
+function checkExistingBlockId($conn, $table, $id_automatizador, $block_id)
+{
     $query = "SELECT id FROM $table WHERE id_automatizador = ? AND block_id = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param('ii', $id_automatizador, $block_id);
@@ -98,7 +100,10 @@ foreach ($resultado_automatizador as $resultado) {
     $reenvios = isset($info['veces_reenvio']) ? $info['veces_reenvio'] : null;
     $cambiar_status = isset($info['status_a[]']) ? json_encode($info['status_a[]']) : null;
     $texto = isset($info['texto_recibir']) ? $info['texto_recibir'] : null;
-    $wait = isset($info['wait[]']) ? json_encode($info['wait[]']) : null;
+    $wait = isset($info['wait[]'])
+        ? (is_array($info['wait[]']) ? json_encode($info['wait[]']) : json_encode([$info['wait[]']]))
+        : null;
+
 
     // Procesar según el tipo
     if ($tipo <= 6) { // Disparadores
@@ -172,21 +177,21 @@ foreach ($resultado_automatizador as $resultado) {
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
             ";
             $id_accion = executeQuery($conn, $insert_acciones_query, [
-            'iiisisssssssss',
-            $id_condicion,
-            $id_disparador,
-            $id_automatizador,
-            $block_id,
-            $tipo,
-            $asunto,
-            $mensaje,
-            $opciones,
-            $tiempo_envio,
-            $unidad_envio,
-            $tiempo_reenvio,
-            $unidad_reenvio,
-            $reenvios,
-            $cambiar_status
+                'iiisisssssssss',
+                $id_condicion,
+                $id_disparador,
+                $id_automatizador,
+                $block_id,
+                $tipo,
+                $asunto,
+                $mensaje,
+                $opciones,
+                $tiempo_envio,
+                $unidad_envio,
+                $tiempo_reenvio,
+                $unidad_reenvio,
+                $reenvios,
+                $cambiar_status
             ]);
             $parent_map[$resultado['id']] = ['id' => $id_accion, 'type' => 'accion'];
         }
@@ -223,8 +228,7 @@ foreach ($resultado_automatizador as $resultado) {
             ]);
             $parent_map[$resultado['id']] = ['id' => $id_condicion, 'type' => 'condicion'];
         }
-    }
-    elseif ($tipo == 13) { // Condiciones
+    } elseif ($tipo == 13) { // Condiciones
         $id_accion = isset($parent_map[$parent]) && $parent_map[$parent]['type'] == 'accion' ? $parent_map[$parent]['id'] : null;
         $id_disparador = isset($parent_map[$parent]) && $parent_map[$parent]['type'] == 'disparador' ? $parent_map[$parent]['id'] : null;
 
@@ -262,4 +266,3 @@ foreach ($resultado_automatizador as $resultado) {
 
 // Cerrar la conexión
 $conn->close();
-?>
