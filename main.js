@@ -887,6 +887,25 @@ document.addEventListener("DOMContentLoaded", function () {
                         `;
         }
 
+        /* accion enviar etiquetass */
+        if (valorTipoID == "15") {
+          var nameInput = "etiqueta_a[]";
+          const selectedOptions =
+            formDataByBlock[valorBlockID] &&
+            formDataByBlock[valorBlockID][nameInput];
+          codigoHTML += `
+                                          <div class="form-group col-12 p-2">
+                                              <label for="etiqueta_a">Etiquetas</label>
+                                              <select multiple class="form-control select2" id="etiqueta_a" name="${nameInput}">
+                                                  ${generateSelectOptions(
+                                                    "Etiquetas",
+                                                    selectedOptions || []
+                                                  )}
+                                              </select>
+                                          </div>
+                                      `;
+        }
+
         /* accion chatGpt */
         /* if (valorTipoID == "11") {
                         codigoHTML += `
