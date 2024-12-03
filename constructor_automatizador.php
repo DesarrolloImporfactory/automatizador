@@ -177,6 +177,16 @@ if ($id_automatizador) {
             'value' => 14,
             'name_tag' => null
         ]
+        ,
+        [
+            'id' => 15,
+            'category' => 'Acciones',
+            'name' => 'Etiquetar',
+            'description' => 'Accion de asigar etiqueta',
+            'icon' => 'fa-solid fa-tag',
+            'value' => 15,
+            'name_tag' => null
+        ]
     ];
 
     // Consultar la API de Facebook
@@ -301,6 +311,7 @@ if ($id_automatizador) {
             "Productos": [],
             "Categorias": [],
             "Templates": [],
+            "Etiquetas": [],
             "Status": [{
                     id: "0",
                     text: "Todos los Estados"
@@ -485,7 +496,42 @@ if ($id_automatizador) {
                     console.log('Templates cargadas:', window.selectMultipleOptions.Templates);
                 },
                 error: function(error) {
-                    console.error('Error al cargar categorías:', error);
+                    console.error('Error al cargar templates:', error);
+                }
+            });
+        }
+
+        function cargarEtiquetas() {
+            // Dividir por "."
+            var url = window.location.href;
+            var partes = url.split('.');
+            var subdominio = partes[1];
+
+            var url_api = "";
+            if (subdominio == "merkapro") {
+                url_api = "https://app.merkapro.ec/";
+            } else if (subdominio == "imporsuitpro") {
+                url_api = "https://new.imporsuitpro.com/";
+            }
+
+            $.ajax({
+                url: url_api + 'productos/cargar_etiquetas',
+                method: 'GET',
+                dataType: "json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function(response) {
+                    window.selectMultipleOptions.Etiquetas = response.map(function(etiqueta) {
+                        return {
+                            id: etiqueta.id_etiqueta,
+                            text: etiqueta.nombre_etiqueta
+                        };
+                    });
+                    console.log('Etiquetas cargadas:', window.selectMultipleOptions.Etiquetas);
+                },
+                error: function(error) {
+                    console.error('Error al cargar etiquetas:', error);
                 }
             });
         }
@@ -495,6 +541,7 @@ if ($id_automatizador) {
             cargarProductos(); // Carga los productos
             cargarCategorias(); // Carga las categorías
             cargarTemplates(); // Carga las templates
+            cargarEtiquetas(); // Carga las etiquetas
             // Añade más funciones para cargar el resto de las secciones (Status, Novedad, Provincia, Ciudad) si es necesario
         }
 
