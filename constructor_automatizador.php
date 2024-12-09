@@ -335,6 +335,10 @@ if ($id_automatizador) {
                 {
                     id: "5",
                     text: "Zona de entrega"
+                },
+                {
+                    id: "6",
+                    text: "Recolectado"
                 }
             ],
             "Novedad": [{
