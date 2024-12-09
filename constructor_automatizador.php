@@ -339,6 +339,10 @@ if ($id_automatizador) {
                 {
                     id: "6",
                     text: "Recolectado"
+                },
+                {
+                    id: "7",
+                    text: "Transito"
                 }
             ],
             "Novedad": [{
