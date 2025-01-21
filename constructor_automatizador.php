@@ -176,8 +176,7 @@ if ($id_automatizador) {
             'icon' => 'fa-solid fa-network-wired',
             'value' => 14,
             'name_tag' => null
-        ]
-        ,
+        ],
         [
             'id' => 15,
             'category' => 'Acciones',
@@ -343,6 +342,10 @@ if ($id_automatizador) {
                 {
                     id: "7",
                     text: "Transito"
+                },
+                {
+                    id: "8",
+                    text: "Retirar en agencia - Servientrega"
                 }
             ],
             "Novedad": [{
