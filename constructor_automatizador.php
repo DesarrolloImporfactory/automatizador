@@ -430,7 +430,7 @@ if ($id_automatizador) {
                     window.selectMultipleOptions.Productos = response.map(function(producto) {
                         return {
                             id: producto.id_inventario,
-                            text: producto.nombre_producto_tienda
+                            text: producto.nombre
                         };
                     });
                     console.log('Productos cargados:', window.selectMultipleOptions.Productos);
