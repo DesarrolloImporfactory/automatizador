@@ -426,13 +426,22 @@ if ($id_automatizador) {
                     withCredentials: true
                 },
                 success: function(response) {
-                    // Aquí asumimos que 'response' contiene un array de productos
-                    window.selectMultipleOptions.Productos = response.map(function(producto) {
-                        return {
-                            id: producto.id_inventario,
-                            text: producto.nombre
-                        };
-                    });
+                    // Inicia el array con la opción "Todos los productos"
+                    window.selectMultipleOptions.Productos = [{
+                        id: 0,
+                        text: "Todos los productos"
+                    }];
+
+                    // Agrega los productos obtenidos de la API
+                    window.selectMultipleOptions.Productos = window.selectMultipleOptions.Productos.concat(
+                        response.map(function(producto) {
+                            return {
+                                id: producto.id_inventario,
+                                text: producto.nombre
+                            };
+                        })
+                    );
+
                     console.log('Productos cargados:', window.selectMultipleOptions.Productos);
                 },
                 error: function(error) {
