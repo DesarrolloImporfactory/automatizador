@@ -428,7 +428,7 @@ if ($id_automatizador) {
                 success: function(response) {
                     // Inicia el array con la opción "Todos los productos"
                     window.selectMultipleOptions.Productos = [{
-                        id: 0,
+                        id: "0",
                         text: "Todos los productos"
                     }];
 
