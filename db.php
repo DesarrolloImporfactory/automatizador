@@ -11,10 +11,10 @@ if (isset($_SESSION['id_plataforma'])) {
         exit();
     }
 }
-$servername = "ls-8e06bb570f2cc81e5d618c19210a6effa1ee9ab6.czuooq2g4q5f.us-east-2.rds.amazonaws.com";
-$dbname = "imporsuitpro_new_mx";
-$username = "dbmasteruser"; // Usuario por defecto de XAMPP
-$password = "db_82569_soi2uj32_ksn19210a6efczuooq2g4q"; // Sin contraseña por defecto
+$servername = "localhost";
+$dbname = "imporsuitpro_new";
+$username = "imporsuit_system"; // Usuario por defecto de XAMPP
+$password = "imporsuit_system"; // Sin contraseña por defecto
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
