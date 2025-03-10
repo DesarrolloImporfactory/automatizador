@@ -529,18 +529,18 @@ document.addEventListener("DOMContentLoaded", function () {
                         `;
         }
 
-        // Categoria
+        // Abandonado
         if (valorTipoID == "2") {
-          var nameInput = "categorias[]";
+          var nameInput = "abandonados[]";
           const selectedOptions =
             formDataByBlock[valorBlockID] &&
             formDataByBlock[valorBlockID][nameInput];
           codigoHTML += `
                             <div class="form-group col-12 p-2">
-                                <label for="categorias">Categorias</label>
-                                <select multiple class="form-control select2" id="categorias" name="${nameInput}">
+                                <label for="abandonados">Abandonados</label>
+                                <select multiple class="form-control select2" id="abandonados" name="${nameInput}">
                                     ${generateSelectOptions(
-                                      "Categorias",
+                                      "Productos",
                                       selectedOptions || []
                                     )}
                                 </select>

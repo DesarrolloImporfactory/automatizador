@@ -80,7 +80,7 @@ foreach ($resultado_automatizador as $resultado) {
 
     // Mapear los campos del formulario a las variables correctas
     $productos = isset($info['productos[]']) ? json_encode($info['productos[]']) : null;
-    $categorias = isset($info['categorias[]']) ? json_encode($info['categorias[]']) : null;
+    $abandonados = isset($info['abandonados[]']) ? json_encode($info['abandonados[]']) : null;
     $status = isset($info['status[]']) ? json_encode($info['status[]']) : null;
     $novedad = isset($info['novedad[]']) ? json_encode($info['novedad[]']) : null;
     $provincia = isset($info['provincia[]']) ? json_encode($info['provincia[]']) : null;
@@ -112,13 +112,13 @@ foreach ($resultado_automatizador as $resultado) {
             // Actualizar el registro existente
             $update_disparadores_query = "
                 UPDATE disparadores
-                SET productos = ?, categorias = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                SET productos = ?, abandonados = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
                 WHERE id = ?
             ";
             executeQuery($conn, $update_disparadores_query, [
                 'ssssssi',
                 $productos,
-                $categorias,
+                $abandonados,
                 $status,
                 $novedad,
                 $provincia,
@@ -128,7 +128,7 @@ foreach ($resultado_automatizador as $resultado) {
         } else {
             // Insertar nuevo registro
             $insert_disparadores_query = "
-                INSERT INTO disparadores (id_automatizador, block_id, tipo, productos, categorias, status, novedad, provincia, ciudad, created_at, updated_at)
+                INSERT INTO disparadores (id_automatizador, block_id, tipo, productos, abandonados, status, novedad, provincia, ciudad, created_at, updated_at)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
             ";
             $id_disparador = executeQuery($conn, $insert_disparadores_query, [
@@ -137,7 +137,7 @@ foreach ($resultado_automatizador as $resultado) {
                 $block_id,
                 $tipo,
                 $productos,
-                $categorias,
+                $abandonados,
                 $status,
                 $novedad,
                 $provincia,

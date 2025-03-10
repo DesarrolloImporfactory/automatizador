@@ -63,11 +63,11 @@ if ($id_automatizador) {
         [
             'id' => 2,
             'category' => 'Disparadores',
-            'name' => 'Categoria comprada',
-            'description' => 'Dispara una acción según la categoría comprada',
+            'name' => 'Producto abandonado',
+            'description' => 'Dispara una acción según el producto abandonado',
             'icon' => 'fas fa-list-alt',
             'value' => 2,
-            'name_tag' => 'categorias'
+            'name_tag' => 'abandonados'
         ],
         [
             'id' => 3,
