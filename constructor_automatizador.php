@@ -210,7 +210,7 @@ if ($id_automatizador) {
     $url = 'https://graph.facebook.com/v20.0/' . $whatsappBusinessAccountId . '/message_templates';
     $params = array(
         'fields' => $fields,
-        'limit' => $limit,
+        /* 'limit' => $limit, */
         'access_token' => $accessToken
     );
     $url .= '?' . http_build_query($params);
