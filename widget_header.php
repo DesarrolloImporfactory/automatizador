@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD <?php echo $nombre_tabla_plural; ?> - Automatizador ImportSuit</title>
+    <title>CRUD <?php echo $nombre_tabla_plural; ?> - Automatizador Imporsuit</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -77,7 +77,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: #171931 !important;">
         <!-- <button class="btn btn-primary toggle-btn" id="sidebarToggle"><i class="fas fa-bars"></i></button> -->
-        <a class="navbar-brand ml-2" href="#" style="color: white;">Automatizador ImportSuit</a>
+        <a class="navbar-brand ml-2" href="#" style="color: white;">Automatizador Imporsuit</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
             </ul>
