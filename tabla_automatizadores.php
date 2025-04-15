@@ -108,9 +108,9 @@ if ($result->num_rows > 0) {
                     var url_api = "";
 
                     if (subdominio == "merkapro") {
-                        url_api = "https://app.merkapro.ec/";
+                        url_api = "https://chatcenter.imporfactory.app";
                     } else if (subdominio == "imporsuitpro") {
-                        url_api = "https://new.imporsuitpro.com/";
+                        url_api = "https://chatcenter.imporfactory.app";
                     }
 
                     window.location.href = url_api;

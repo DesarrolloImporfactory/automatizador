@@ -267,7 +267,7 @@ if ($id_automatizador) {
 <head>
     <meta charset="UTF-8">
     <!-- Primary Meta Tags -->
-    <title>Automatizador <?php echo $nombre_automatizador; ?> - ImportSuit</title>
+    <title>Automatizador <?php echo $nombre_automatizador; ?> - ImporSuit</title>
     <link
         href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
         rel="stylesheet" />
