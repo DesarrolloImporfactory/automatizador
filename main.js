@@ -23,15 +23,15 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
           "category": "Disparadores",
-          "name": "Cambio de status de la orden",
-          "description": "Dispara una acción cuando el producto cambia de status",
+          "name": "Cambio de estado de la guía",
+          "description": "Dispara una acción cuando la guía cambia de estado",
           "icon": "fa fa-exchange-alt",
           "value": 3
         },
         {
           "category": "Disparadores",
-          "name": "Una orden presenta una novedad",
-          "description": "Dispara una acción cuando una orden presenta una novedad",
+          "name": "Cambio de estado del pedido",
+          "description": "Dispara una acción cuando el pedido cambia de estado",
           "icon": "fa fa-bell",
           "value": 4
         },
@@ -567,18 +567,18 @@ document.addEventListener("DOMContentLoaded", function () {
                         `;
         }
 
-        // Novedad
+        // Estado Pedido
         if (valorTipoID == "4") {
-          var nameInput = "novedad[]";
+          var nameInput = "estado_pedido[]";
           const selectedOptions =
             formDataByBlock[valorBlockID] &&
             formDataByBlock[valorBlockID][nameInput];
           codigoHTML += `
                             <div class="form-group col-12 p-2">
-                                <label for="novedad">Novedad</label>
-                                <select multiple class="form-control select2" id="novedad" name="${nameInput}">
+                                <label for="estado_pedido">Estado Pedido</label>
+                                <select multiple class="form-control select2" id="estado_pedido" name="${nameInput}">
                                     ${generateSelectOptions(
-                                      "Novedad",
+                                      "Estado_pedido",
                                       selectedOptions || []
                                     )}
                                 </select>

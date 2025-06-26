@@ -82,7 +82,7 @@ foreach ($resultado_automatizador as $resultado) {
     $productos = isset($info['productos[]']) ? json_encode($info['productos[]']) : null;
     $abandonados = isset($info['abandonados[]']) ? json_encode($info['abandonados[]']) : null;
     $status = isset($info['status[]']) ? json_encode($info['status[]']) : null;
-    $novedad = isset($info['novedad[]']) ? json_encode($info['novedad[]']) : null;
+    $estado_pedido = isset($info['estado_pedido[]']) ? json_encode($info['estado_pedido[]']) : null;
     $provincia = isset($info['provincia[]']) ? json_encode($info['provincia[]']) : null;
     $ciudad = isset($info['ciudad[]']) ? json_encode($info['ciudad[]']) : null;
     $mensaje = isset($info['mensaje']) ? $info['mensaje'] : null;
@@ -112,7 +112,7 @@ foreach ($resultado_automatizador as $resultado) {
             // Actualizar el registro existente
             $update_disparadores_query = "
                 UPDATE disparadores
-                SET productos = ?, abandonados = ?, status = ?, novedad = ?, provincia = ?, ciudad = ?, updated_at = NOW()
+                SET productos = ?, abandonados = ?, status = ?, estado_pedido = ?, provincia = ?, ciudad = ?, updated_at = NOW()
                 WHERE id = ?
             ";
             executeQuery($conn, $update_disparadores_query, [
@@ -120,7 +120,7 @@ foreach ($resultado_automatizador as $resultado) {
                 $productos,
                 $abandonados,
                 $status,
-                $novedad,
+                $estado_pedido,
                 $provincia,
                 $ciudad,
                 $existing_id
@@ -128,7 +128,7 @@ foreach ($resultado_automatizador as $resultado) {
         } else {
             // Insertar nuevo registro
             $insert_disparadores_query = "
-                INSERT INTO disparadores (id_automatizador, block_id, tipo, productos, abandonados, status, novedad, provincia, ciudad, created_at, updated_at)
+                INSERT INTO disparadores (id_automatizador, block_id, tipo, productos, abandonados, status, estado_pedido, provincia, ciudad, created_at, updated_at)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
             ";
             $id_disparador = executeQuery($conn, $insert_disparadores_query, [
@@ -139,7 +139,7 @@ foreach ($resultado_automatizador as $resultado) {
                 $productos,
                 $abandonados,
                 $status,
-                $novedad,
+                $estado_pedido,
                 $provincia,
                 $ciudad
             ]);

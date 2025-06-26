@@ -72,8 +72,8 @@ if ($id_automatizador) {
         [
             'id' => 3,
             'category' => 'Disparadores',
-            'name' => 'Cambio de status de la orden',
-            'description' => 'Dispara una acción cuando el producto cambia de status',
+            'name' => 'Cambio de estado de la guía',
+            'description' => 'Dispara una acción cuando la guía cambia de estado',
             'icon' => 'fa fa-exchange-alt',
             'value' => 3,
             'name_tag' => 'status'
@@ -81,11 +81,11 @@ if ($id_automatizador) {
         [
             'id' => 4,
             'category' => 'Disparadores',
-            'name' => 'Una orden presenta una novedad',
-            'description' => 'Dispara una acción cuando una orden presenta una novedad',
+            'name' => 'Cambio de estado del pedido',
+            'description' => 'Dispara una acción cuando el pedido cambia de estado',
             'icon' => 'fa fa-bell',
             'value' => 4,
-            'name_tag' => 'novedad'
+            'name_tag' => 'estado_pedido'
         ],
         [
             'id' => 5,
@@ -348,21 +348,41 @@ if ($id_automatizador) {
                     text: "Retirar en agencia - Servientrega"
                 }
             ],
-            "Novedad": [{
+            "Estado_pedido": [{
                     id: "0",
-                    text: "Todas las Novedades"
+                    text: "Todos los Estados"
                 },
                 {
                     id: "1",
-                    text: "Novedad 1"
+                    text: "Pendiente"
                 },
                 {
                     id: "2",
-                    text: "Novedad 2"
+                    text: "Gestionado"
                 },
                 {
                     id: "3",
-                    text: "Novedad 3"
+                    text: "No desea"
+                },
+                {
+                    id: "4",
+                    text: "1ra llamada"
+                },
+                {
+                    id: "5",
+                    text: "2da llamada"
+                },
+                {
+                    id: "6",
+                    text: "Observación"
+                },
+                {
+                    id: "7",
+                    text: "Anulado"
+                },
+                {
+                    id: "8",
+                    text: "No vinculado"
                 }
             ],
             "Wait": [{
