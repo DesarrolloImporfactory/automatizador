@@ -11,7 +11,7 @@ if (isset($_SESSION['id_plataforma'])) {
         exit();
     }
 }
-$servername = "localhost";
+$servername = "3.233.119.65";
 $dbname = "imporsuitpro_new";
 $username = "imporsuit_system"; // Usuario por defecto de XAMPP
 $password = "imporsuit_system"; // Sin contraseña por defecto

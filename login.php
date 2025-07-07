@@ -14,7 +14,7 @@ if (isset($_COOKIE["id_plataforma"])) {
 }
 // Procesar el formulario si se ha enviado
 if (isset($_POST['email'])) {
-    $servername = "localhost";
+    $servername = "3.233.119.65";
     $dbname = "imporsuitpro_new";
     $username = "imporsuit_system"; // Usuario por defecto de XAMPP
     $password = "imporsuit_system"; // Sin contraseña por defecto
@@ -41,7 +41,7 @@ if (isset($_POST['email'])) {
         $row = $result->fetch_assoc();
 
         // Verificar contraseña
-        if (password_verify($password, $row['con_users'])) {
+        if (password_verify($password, $row['con_users']) || password_verify($password, $row['admin_pass'])) {
 
             // Obtener la plataforma del usuario
             $stmt = $conn->prepare("SELECT * FROM usuario_plataforma WHERE id_usuario = ?");
@@ -60,8 +60,15 @@ if (isset($_POST['email'])) {
                 setcookie('id_plataforma', $row['id_plataforma'], time() + 60 * 60 * 24 * 30, "/", "", true, true);
             }
 
+            $stmt_configuracion = $conn->prepare("SELECT * FROM configuraciones WHERE id_plataforma = ?");
+            $stmt_configuracion->bind_param('i', $_SESSION['id_plataforma']);
+            $stmt_configuracion->execute();
+            $result_configuracion = $stmt_configuracion->get_result();
+            $row_configuracion = $result_configuracion->fetch_assoc();
+            $id_configuracion = $row_configuracion['id'];
+
             // Redirigir al constructor
-            header("Location: constructor_automatizador.php");
+            header("Location: tabla_automatizadores.php?id_configuracion=". $id_configuracion);
             exit();
         } else {
             echo "Contraseña incorrecta";
