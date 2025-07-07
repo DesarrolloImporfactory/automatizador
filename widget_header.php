@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD <?php echo $nombre_tabla_plural; ?> - Automatizador Imporsuit</title>
+    <title><?php echo $nombre_tabla_plural; ?> Automatizador Imporsuit</title>
+    <link rel="icon" type="image/png" href="https://new.imporsuitpro.com//public/img/favicon_automatizador.png">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -75,11 +76,19 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: #171931 !important;">
-        <!-- <button class="btn btn-primary toggle-btn" id="sidebarToggle"><i class="fas fa-bars"></i></button> -->
-        <a class="navbar-brand ml-2" href="#" style="color: white;">Automatizador Imporsuit</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: #0f112b;">
+        <a class="navbar-brand ml-3 text-white" href="#">Automatizador Imporsuit</a>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-center me-3">
+                <li class="nav-item">
+                    <form action="logout.php" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-sm d-flex align-items-center px-3 py-1" style="background-color: #2d2f4b; color: #fff; border: none; border-radius: 6px;">
+                            <i class="fas fa-arrow-right-from-bracket me-2" style="font-size: 14px;"></i>
+                            <span style="font-size: 14px;">Cerrar sesión</span>
+                        </button>
+                    </form>
+                </li>
             </ul>
         </div>
     </nav>
