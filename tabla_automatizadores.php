@@ -19,12 +19,12 @@ if (!$id_configuracion) {
     <script>
         Swal.fire({
             title: 'No se ha proporcionado una configuración',
-            text: 'Serás redirigido a la tabla de configuraciones para seleccionar una',
+            text: 'Serás redirigido a la tabla de configuraciones que vuelvas a entrar al automatizador',
             icon: 'info',
             confirmButtonText: 'Aceptar'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = 'https://new.imporsuitpro.com/pedidos/configuracion_chats_imporsuit';
+                window.location.href = 'https://chatcenter.imporfactory.app/administrador-whatsapp';
             }
         });
     </script>
@@ -45,12 +45,21 @@ if ($result->num_rows > 0) {
         <script>
             Swal.fire({
                 title: 'No tienes permisos para acceder a esta configuración',
-                text: 'Serás redirigido a la tabla de configuraciones para seleccionar una',
+                text: 'Serás redirigido a el login para que inicies session con tu cuenta',
                 icon: 'error',
                 confirmButtonText: 'Aceptar'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = 'https://new.imporsuitpro.com/pedidos/configuracion_chats_imporsuit';
+                    // Hacer llamada a logout.php vía POST
+                    fetch('logout.php', {
+                        method: 'POST',
+                    }).then(() => {
+                        // Redirigir una vez que se destruyó la sesión
+                        window.location.href = 'https://automatizador.imporsuitpro.com/login.php';
+                    }).catch(() => {
+                        // Por si algo falla, forzar redirección de todos modos
+                        window.location.href = 'https://automatizador.imporsuitpro.com/login.php';
+                    });
                 }
             });
         </script>
@@ -63,12 +72,21 @@ if ($result->num_rows > 0) {
     <script>
         Swal.fire({
             title: 'No tienes permisos para acceder a esta configuración',
-            text: 'Serás redirigido a la tabla de configuraciones para seleccionar una',
+            text: 'Serás redirigido a el login para que inicies session con tu cuenta',
             icon: 'error',
             confirmButtonText: 'Aceptar'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = 'https://new.imporsuitpro.com/pedidos/configuracion_chats_imporsuit';
+                // Hacer llamada a logout.php vía POST
+                fetch('logout.php', {
+                    method: 'POST',
+                }).then(() => {
+                    // Redirigir una vez que se destruyó la sesión
+                    window.location.href = 'https://automatizador.imporsuitpro.com/login.php';
+                }).catch(() => {
+                    // Por si algo falla, forzar redirección de todos modos
+                    window.location.href = 'https://automatizador.imporsuitpro.com/login.php';
+                });
             }
         });
     </script>
