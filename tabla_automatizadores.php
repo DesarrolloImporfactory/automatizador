@@ -19,12 +19,21 @@ if (!$id_configuracion) {
     <script>
         Swal.fire({
             title: 'No se ha proporcionado una configuración',
-            text: 'Serás redirigido a la tabla de configuraciones que vuelvas a entrar al automatizador',
+            text: 'Serás redirigido a el login para que inicies session con tu cuenta',
             icon: 'info',
             confirmButtonText: 'Aceptar'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = 'https://chatcenter.imporfactory.app/administrador-whatsapp';
+                // Hacer llamada a logout.php vía POST
+                fetch('logout.php', {
+                    method: 'POST',
+                }).then(() => {
+                    // Redirigir una vez que se destruyó la sesión
+                    window.location.href = 'https://automatizador.imporsuitpro.com/login.php';
+                }).catch(() => {
+                    // Por si algo falla, forzar redirección de todos modos
+                    window.location.href = 'https://automatizador.imporsuitpro.com/login.php';
+                });
             }
         });
     </script>
