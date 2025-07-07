@@ -1,17 +1,24 @@
 <?php
 session_start();
 
-// Eliminar todas las variables de sesión
+// Eliminar variables de sesión
 $_SESSION = [];
-
-// Destruir la sesión
 session_destroy();
 
-// Eliminar la cookie si existe
-if (isset($_COOKIE['id_plataforma'])) {
-    setcookie('id_plataforma', '', time() - 3600, '/');
+// Función para borrar cookie en dominio y subdominio
+function borrar_cookie($nombre)
+{
+    setcookie($nombre, '', time() - 3600, '/', '.imporsuitpro.com'); // borra cookie del dominio principal
+    setcookie($nombre, '', time() - 3600, '/'); // borra cookie del subdominio actual (por si acaso)
 }
 
-// Redirigir al login
+// Eliminar cookies compartidas
+borrar_cookie('user');
+borrar_cookie('id_plataforma');
+borrar_cookie('login_time');
+borrar_cookie('cargo');
+borrar_cookie('id');
+
+// Redirigir
 header("Location: login.php");
 exit();
