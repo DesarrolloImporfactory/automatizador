@@ -268,6 +268,7 @@ if ($id_automatizador) {
     <meta charset="UTF-8">
     <!-- Primary Meta Tags -->
     <title>Automatizador <?php echo $nombre_automatizador; ?> - ImporSuit</title>
+    <link rel="icon" type="image/png" href="https://new.imporsuitpro.com//public/img/favicon_automatizador.png">
     <link
         href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
         rel="stylesheet" />
