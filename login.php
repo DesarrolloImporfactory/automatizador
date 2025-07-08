@@ -161,7 +161,7 @@ if (isset($_POST['email'])) {
     </div>
 
     <img src="https://automatizador.imporsuitpro.com/img/automat_log.png" alt="Automatizador"
-         class="w-40 drop-shadow-xl mx-auto opacity-0 animate-fade-in-up-delayed">
+         class="w-80 drop-shadow-xl mx-auto opacity-0 animate-fade-in-up-delayed">
   </div>
 </div>
 
