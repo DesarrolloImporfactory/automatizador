@@ -528,6 +528,8 @@ if ($id_automatizador) {
                 method: 'POST',
                 dataType: "json",
                 data: formData,
+                processData: false, // No procesar los datos
+                contentType: false, // No establecer el contentType, jQuery lo hace automáticamente
                 xhrFields: {
                     withCredentials: true
                 },
