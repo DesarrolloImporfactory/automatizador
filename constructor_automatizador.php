@@ -520,10 +520,14 @@ if ($id_automatizador) {
                 url_api = "https://new.imporsuitpro.com/";
             }
 
+            let formData = new FormData();
+            formData.append("id_configuracion", id_configuracion);
+
             $.ajax({
                 url: url_api + 'productos/cargar_templates',
-                method: 'GET',
+                method: 'POST',
                 dataType: "json",
+                data: formData,
                 xhrFields: {
                     withCredentials: true
                 },
