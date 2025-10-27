@@ -11,10 +11,10 @@ if (isset($_SESSION['id_plataforma'])) {
         exit();
     }
 }
-$servername = "3.233.119.65";
-$dbname = "imporsuitpro_new";
-$username = "imporsuit_system"; // Usuario por defecto de XAMPP
-$password = "imporsuit_system"; // Sin contraseña por defecto
+$servername = "44.215.62.184";
+$dbname = "chat_center";
+$username = "shadow"; // Usuario por defecto de XAMPP
+$password = "Ahrj45@21"; // Sin contraseña por defecto
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
