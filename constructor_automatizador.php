@@ -432,16 +432,14 @@ if ($id_automatizador) {
             var partes = url.split('.');
             var subdominio = partes[1];
 
-            var url_api = "";
-            if (subdominio == "merkapro") {
-                url_api = "https://app.merkapro.ec/";
-            } else if (subdominio == "imporsuitpro") {
-                url_api = "https://new.imporsuitpro.com/";
-            }
+            var url_api = "https://chat.imporfactory.app/";
 
             $.ajax({
-                url: url_api + 'productos/obtener_productos_tienda_automatizador',
-                method: 'GET',
+                url: url_api + 'automatizador/obtenerProductosAutomatizador',
+                method: 'POST',
+                data: {
+                    id_configuracion: id_configuracion
+                },
                 dataType: "json",
                 xhrFields: {
                     withCredentials: true
@@ -478,16 +476,14 @@ if ($id_automatizador) {
             var partes = url.split('.');
             var subdominio = partes[1];
 
-            var url_api = "";
-            if (subdominio == "merkapro") {
-                url_api = "https://app.merkapro.ec/";
-            } else if (subdominio == "imporsuitpro") {
-                url_api = "https://new.imporsuitpro.com/";
-            }
+            var url_api = "https://chat.imporfactory.app/";
 
             $.ajax({
                 url: url_api + 'productos/cargar_categorias',
-                method: 'GET',
+                method: 'POST',
+                data: {
+                    id_configuracion: id_configuracion
+                },
                 dataType: "json",
                 xhrFields: {
                     withCredentials: true
@@ -513,21 +509,15 @@ if ($id_automatizador) {
             var partes = url.split('.');
             var subdominio = partes[1];
 
-            var url_api = "";
-            if (subdominio == "merkapro") {
-                url_api = "https://app.merkapro.ec/";
-            } else if (subdominio == "imporsuitpro") {
-                url_api = "https://new.imporsuitpro.com/";
-            }
-
-            let formData = new FormData();
-            formData.append("id_configuracion", id_configuracion);
+            var url_api = "https://chat.imporfactory.app/";
 
             $.ajax({
                 url: url_api + 'productos/cargar_templates',
                 method: 'POST',
                 dataType: "json",
-                data: formData,
+                data: {
+                    id_configuracion: id_configuracion
+                },
                 processData: false, // No procesar los datos
                 contentType: false, // No establecer el contentType, jQuery lo hace automáticamente
                 xhrFields: {
@@ -554,16 +544,14 @@ if ($id_automatizador) {
             var partes = url.split('.');
             var subdominio = partes[1];
 
-            var url_api = "";
-            if (subdominio == "merkapro") {
-                url_api = "https://app.merkapro.ec/";
-            } else if (subdominio == "imporsuitpro") {
-                url_api = "https://new.imporsuitpro.com/";
-            }
+            var url_api = "https://chat.imporfactory.app/";
 
             $.ajax({
                 url: url_api + 'productos/cargar_etiquetas',
-                method: 'GET',
+                method: 'POST',
+                data: {
+                    id_configuracion: id_configuracion
+                },
                 dataType: "json",
                 xhrFields: {
                     withCredentials: true
