@@ -479,7 +479,7 @@ if ($id_automatizador) {
             var url_api = "https://chat.imporfactory.app/api/v1/";
 
             $.ajax({
-                url: url_api + 'productos/cargar_categorias',
+                url: url_api + 'automatizador/obtenerCategoriasAutomatizador',
                 method: 'POST',
                 data: {
                     id_configuracion: id_configuracion
@@ -512,7 +512,7 @@ if ($id_automatizador) {
             var url_api = "https://chat.imporfactory.app/api/v1/";
 
             $.ajax({
-                url: url_api + 'productos/cargar_templates',
+                url: url_api + 'automatizador/obtenerTemplatesAutomatizador',
                 method: 'POST',
                 dataType: "json",
                 data: {
@@ -547,7 +547,7 @@ if ($id_automatizador) {
             var url_api = "https://chat.imporfactory.app/api/v1/";
 
             $.ajax({
-                url: url_api + 'productos/cargar_etiquetas',
+                url: url_api + 'automatizador/obtenerEtiquetasAutomatizador',
                 method: 'POST',
                 data: {
                     id_configuracion: id_configuracion
