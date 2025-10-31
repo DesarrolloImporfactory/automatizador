@@ -432,7 +432,7 @@ if ($id_automatizador) {
             var partes = url.split('.');
             var subdominio = partes[1];
 
-            var url_api = "https://chat.imporfactory.app/";
+            var url_api = "https://chat.imporfactory.app/api/v1/";
 
             $.ajax({
                 url: url_api + 'automatizador/obtenerProductosAutomatizador',
@@ -476,7 +476,7 @@ if ($id_automatizador) {
             var partes = url.split('.');
             var subdominio = partes[1];
 
-            var url_api = "https://chat.imporfactory.app/";
+            var url_api = "https://chat.imporfactory.app/api/v1/";
 
             $.ajax({
                 url: url_api + 'productos/cargar_categorias',
@@ -509,7 +509,7 @@ if ($id_automatizador) {
             var partes = url.split('.');
             var subdominio = partes[1];
 
-            var url_api = "https://chat.imporfactory.app/";
+            var url_api = "https://chat.imporfactory.app/api/v1/";
 
             $.ajax({
                 url: url_api + 'productos/cargar_templates',
@@ -544,7 +544,7 @@ if ($id_automatizador) {
             var partes = url.split('.');
             var subdominio = partes[1];
 
-            var url_api = "https://chat.imporfactory.app/";
+            var url_api = "https://chat.imporfactory.app/api/v1/";
 
             $.ajax({
                 url: url_api + 'productos/cargar_etiquetas',
