@@ -521,8 +521,6 @@ if ($id_automatizador) {
                 data: JSON.stringify({
                     id_configuracion: id_configuracion // Convierte el cuerpo en un string JSON
                 }),
-                processData: false, // No procesar los datos
-                contentType: false, // No establecer el contentType, jQuery lo hace automáticamente
                 xhrFields: {
                     withCredentials: true
                 },
