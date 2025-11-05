@@ -491,7 +491,7 @@ if ($id_automatizador) {
                     withCredentials: true
                 },
                 success: function(response) {
-                    window.selectMultipleOptions.Categorias = response.map(function(categoria) {
+                    window.selectMultipleOptions.Categorias = response.data.map(function(categoria) {
                         return {
                             id: categoria.id_linea,
                             text: categoria.nombre_linea
@@ -525,7 +525,7 @@ if ($id_automatizador) {
                     withCredentials: true
                 },
                 success: function(response) {
-                    window.selectMultipleOptions.Templates = response.map(function(template) {
+                    window.selectMultipleOptions.Templates = response.data.map(function(template) {
                         return {
                             id: template.id_template,
                             text: template.atajo
@@ -559,7 +559,7 @@ if ($id_automatizador) {
                     withCredentials: true
                 },
                 success: function(response) {
-                    window.selectMultipleOptions.Etiquetas = response.map(function(etiqueta) {
+                    window.selectMultipleOptions.Etiquetas = response.data.map(function(etiqueta) {
                         return {
                             id: etiqueta.id_etiqueta,
                             text: etiqueta.nombre_etiqueta
