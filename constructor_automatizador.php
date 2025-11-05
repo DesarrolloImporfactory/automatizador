@@ -437,9 +437,10 @@ if ($id_automatizador) {
             $.ajax({
                 url: url_api + 'automatizador/obtenerProductosAutomatizador',
                 method: 'POST',
-                data: {
-                    id_configuracion: id_configuracion
-                },
+                contentType: 'application/json', // Asegura que los datos se envíen como JSON
+                data: JSON.stringify({
+                    id_configuracion: id_configuracion // Convierte el cuerpo en un string JSON
+                }),
                 dataType: "json",
                 xhrFields: {
                     withCredentials: true
@@ -481,9 +482,10 @@ if ($id_automatizador) {
             $.ajax({
                 url: url_api + 'automatizador/obtenerCategoriasAutomatizador',
                 method: 'POST',
-                data: {
-                    id_configuracion: id_configuracion
-                },
+                contentType: 'application/json', // Asegura que los datos se envíen como JSON
+                data: JSON.stringify({
+                    id_configuracion: id_configuracion // Convierte el cuerpo en un string JSON
+                }),
                 dataType: "json",
                 xhrFields: {
                     withCredentials: true
@@ -515,9 +517,10 @@ if ($id_automatizador) {
                 url: url_api + 'automatizador/obtenerTemplatesAutomatizador',
                 method: 'POST',
                 dataType: "json",
-                data: {
-                    id_configuracion: id_configuracion
-                },
+                contentType: 'application/json', // Asegura que los datos se envíen como JSON
+                data: JSON.stringify({
+                    id_configuracion: id_configuracion // Convierte el cuerpo en un string JSON
+                }),
                 processData: false, // No procesar los datos
                 contentType: false, // No establecer el contentType, jQuery lo hace automáticamente
                 xhrFields: {
@@ -549,9 +552,10 @@ if ($id_automatizador) {
             $.ajax({
                 url: url_api + 'automatizador/obtenerEtiquetasAutomatizador',
                 method: 'POST',
-                data: {
-                    id_configuracion: id_configuracion
-                },
+                contentType: 'application/json', // Asegura que los datos se envíen como JSON
+                data: JSON.stringify({
+                    id_configuracion: id_configuracion // Convierte el cuerpo en un string JSON
+                }),
                 dataType: "json",
                 xhrFields: {
                     withCredentials: true
