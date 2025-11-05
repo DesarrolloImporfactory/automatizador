@@ -454,7 +454,7 @@ if ($id_automatizador) {
 
                     // Agrega los productos obtenidos de la API
                     window.selectMultipleOptions.Productos = window.selectMultipleOptions.Productos.concat(
-                        response.map(function(producto) {
+                        response.data.map(function(producto) {
                             return {
                                 id: producto.id_inventario,
                                 text: producto.nombre
